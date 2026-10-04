@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Primary Page Metadata per V4 Freeze SEO Specification -->
+    <title>NeutraCap Capacitors | Starting, Running, Filter &amp; DC Capacitors</title>
+    <meta name="description" content="NeutraCap manufactures high-reliability Starting (40v), Green Filter (40v), Running (62v) &amp; DC Aluminium Electrolytic Capacitors (348v). 35+ years engineering heritage. 490 baseline variants with direct factory dispatch." />
+    <meta name="keywords" content="NeutraCap, motor start capacitor, running capacitor, green filter capacitor, DC aluminium electrolytic capacitor, 450V DC capacitor, power factor capacitor, 440V AC capacitor, OEM industrial capacitors" />
+    <meta name="author" content="NeutraCap Industrial Technologies" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://neutracap.com/" />
+
+    <!-- Progressive Web App (PWA) Manifest & Meta -->
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#071426" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="NeutraCap" />
+    <link rel="icon" type="image/svg+xml" href="/pwa-icon.svg" />
+    <link rel="apple-touch-icon" href="/pwa-icon.svg" />
+
+    <!-- Open Graph / Facebook / LinkedIn -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://neutracap.com/" />
+    <meta property="og:title" content="NeutraCap Capacitors | Starting, Running, Filter &amp; DC Capacitors" />
+    <meta property="og:description" content="Precision engineered industrial capacitors: Starting, Running, Green Filter &amp; DC Aluminium Electrolytic. 490 baseline variants with 35+ years manufacturing heritage." />
+    <meta property="og:image" content="/assets/brand/neutracap_og.png" />
+    <meta property="og:site_name" content="NEUTRACAP" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="NeutraCap Capacitors | Starting, Running, Filter &amp; DC Capacitors" />
+    <meta name="twitter:description" content="Precision engineered industrial capacitors: Starting, Running, Green Filter &amp; DC Aluminium Electrolytic. 490 baseline variants." />
+    <meta name="twitter:image" content="/assets/brand/neutracap_og.png" />
+
+    <!-- Google Web Fonts: Sora, Space Grotesk, Inter, IBM Plex Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Sora:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- JSON-LD Structured Data for SEO & Rich Results -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://neutracap.com/#organization",
+          "name": "NEUTRACAP",
+          "url": "https://neutracap.com/",
+          "logo": "https://neutracap.com/assets/brand/logo.png",
+          "description": "Industrial capacitor manufacturer specializing in Starting, Running, Green Filter and DC Aluminium Electrolytic Capacitors with 35+ years engineering heritage.",
+          "foundingDate": "1989",
+          "slogan": "Precision · Power · Performance"
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://neutracap.com/#website",
+          "url": "https://neutracap.com/",
+          "name": "NEUTRACAP",
+          "publisher": {
+            "@id": "https://neutracap.com/#organization"
+          }
+        },
+        {
+          "@type": "ItemList",
+          "name": "NeutraCap Primary Capacitor Catalogues",
+          "itemListElement": [
+            {
+              "@type": "ProductGroup",
+              "position": 1,
+              "name": "Starting Capacitors",
+              "description": "High starting torque AC initiation capacitors for single-phase induction motors (40 variants).",
+              "numberOfItems": 40
+            },
+            {
+              "@type": "ProductGroup",
+              "position": 2,
+              "name": "Green Filter Capacitors",
+              "description": "Harmonic suppression & power factor clean power filter capacitors (40 variants).",
+              "numberOfItems": 40
+            },
+            {
+              "@type": "ProductGroup",
+              "position": 3,
+              "name": "Running Capacitors",
+              "description": "10,000h continuous duty metallized film motor run capacitors (62 variants).",
+              "numberOfItems": 62
+            },
+            {
+              "@type": "ProductGroup",
+              "position": 4,
+              "name": "DC Aluminium Electrolytic Capacitors",
+              "description": "High ripple current & energy storage snap-in and screw terminal DC link capacitors (348 variants).",
+              "numberOfItems": 348
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+  </head>
+  <body class="bg-[#F8F9FA] text-[#10213B] font-sans antialiased selection:bg-[#0066FF] selection:text-white overflow-x-hidden">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+    <script>
+      if ('serviceWorker' in navigator && window.location.protocol.startsWith('http')) {
+        window.addEventListener('load', function() {
+          navigator.serviceWorker.register('/sw.js').catch(function(err) {
+            console.warn('[NeutraCap PWA] ServiceWorker registration skipped:', err);
+          });
+        });
+      }
+    </script>
+  </body>
+</html>

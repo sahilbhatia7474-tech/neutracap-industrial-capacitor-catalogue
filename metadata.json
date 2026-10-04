@@ -1,0 +1,6 @@
+{
+  "name": "NeutraCap - Industrial Capacitors",
+  "description": "Precision-engineered industrial capacitors: Starting, Running, Green Filter, and DC Aluminium Electrolytic Capacitors with 35+ years of engineering heritage.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

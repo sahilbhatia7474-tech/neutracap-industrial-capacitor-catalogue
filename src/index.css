@@ -1,0 +1,462 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    /* NeutraCap Mastercraft Industrial Palette */
+    --obsidian-black: #060A14;
+    --obsidian-surface: #091224;
+    --obsidian-card: #0D1930;
+    --obsidian-card-hover: #122242;
+    
+    /* Steel Blue & Deep Navy Atmospheric Spectrum */
+    --brand-steel-blue: #173A5E;
+    --brand-navy-core: #0B1F36;
+    --brand-glow: rgba(23, 58, 94, 0.35);
+    --indigo-aura: rgba(23, 58, 94, 0.2);
+    
+    /* Electric Cyan Brand Signature Accent */
+    --tech-cyan: #35C6E8;
+    --cyan-glow: rgba(53, 198, 232, 0.25);
+    
+    /* Emerald Conversion & Trust Accent */
+    --conversion-green: #10B981;
+    --conversion-glow: rgba(16, 185, 129, 0.22);
+    --conversion-surface: rgba(16, 185, 129, 0.08);
+
+    /* Editorial Text System */
+    --text-primary: #FFFFFF;
+    --text-secondary: #94A3B8;
+    --text-muted: #64748B;
+  }
+
+  html {
+    width: 100%;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    box-sizing: border-box;
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+    background-color: var(--obsidian-black);
+  }
+
+  body {
+    width: 100%;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: var(--text-primary);
+    background-color: var(--obsidian-black);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    letter-spacing: -0.011em;
+    box-sizing: border-box;
+  }
+
+  #root {
+    width: 100%;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background-color: var(--obsidian-black);
+  }
+
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  /* Upgraded Editorial Typography System */
+  .font-sans {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+
+  .font-display {
+    font-family: 'Sora', 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+    letter-spacing: -0.03em;
+  }
+
+  .font-editorial {
+    font-family: 'Sora', 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+    letter-spacing: -0.035em;
+    line-height: 1.08;
+    text-rendering: optimizeLegibility;
+  }
+
+  .font-mono, .tech-mono {
+    font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    letter-spacing: -0.01em;
+    font-feature-settings: "tnum" 1;
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* Custom luxury dark scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #060814;
+}
+::-webkit-scrollbar-thumb {
+  background: #172346;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #35C6E8;
+}
+
+/* ==========================================================================
+   ATMOSPHERIC LIGHTING & OBSIDIAN STEEL BLUE DEPTH
+   ========================================================================== */
+
+/* Main canvas background with deep obsidian navy & steel blue atmosphere */
+.bg-obsidian-depth {
+  background: 
+    radial-gradient(ellipse 90% 50% at 50% 0%, rgba(23, 58, 94, 0.25) 0%, rgba(11, 31, 54, 0.3) 35%, transparent 75%),
+    radial-gradient(circle 500px at 85% 25%, rgba(53, 198, 232, 0.07) 0%, transparent 60%),
+    linear-gradient(180deg, #060A14 0%, #071426 35%, #060A14 100%);
+}
+
+.bg-obsidian-subtle {
+  background: 
+    radial-gradient(ellipse 80% 40% at 50% 10%, rgba(23, 58, 94, 0.2) 0%, transparent 70%),
+    linear-gradient(180deg, #071426 0%, #0B1F36 50%, #060A14 100%);
+}
+
+/* Precision micro-grid texture */
+.bg-luxury-grid {
+  background-size: 36px 36px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+}
+
+.bg-circuit-subtle {
+  background-size: 64px 64px;
+  background-image: radial-gradient(rgba(53, 198, 232, 0.08) 1px, transparent 1px);
+}
+
+/* ==========================================================================
+   FROSTED GLASSMORPHISM & LUXURY CARDS
+   ========================================================================== */
+
+/* High-end obsidian glass card with specular hairline */
+.glass-panel-luxury {
+  background: rgba(11, 31, 54, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 
+    0 10px 30px -10px rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.4);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.25s ease,
+              background-color 0.25s ease;
+  will-change: transform, box-shadow;
+}
+
+@media (hover: hover) and (min-width: 768px) {
+  .glass-panel-luxury:hover {
+    background: rgba(14, 38, 66, 0.95);
+    border-color: rgba(53, 198, 232, 0.5);
+    transform: translateY(-3px);
+    box-shadow: 
+      0 16px 40px -8px rgba(0, 0, 0, 0.7),
+      0 0 25px rgba(53, 198, 232, 0.18),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+}
+
+/* Converted product card (compatible with existing class names) */
+.card-tactile {
+  background: rgba(13, 20, 44, 0.72);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 
+    0 8px 24px -6px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.25s ease,
+              background-color 0.25s ease;
+  will-change: transform, box-shadow;
+}
+
+@media (hover: hover) and (min-width: 768px) {
+  .card-tactile:hover {
+    background: rgba(18, 28, 60, 0.85);
+    border-color: rgba(53, 198, 232, 0.5);
+    transform: translateY(-3px);
+    box-shadow: 
+      0 20px 45px -10px rgba(0, 0, 0, 0.7),
+      0 0 20px rgba(53, 198, 232, 0.12),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+}
+
+/* Gateway tactile card */
+.card-gateway-depth {
+  background: rgba(13, 20, 44, 0.7);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 
+    0 12px 36px -10px rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (hover: hover) and (min-width: 768px) {
+  .card-gateway-depth:hover {
+    background: rgba(18, 27, 58, 0.85);
+    transform: translateY(-3px);
+    box-shadow: 
+      0 24px 50px -12px rgba(0, 0, 0, 0.75),
+      0 0 30px rgba(124, 58, 237, 0.18),
+      inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  }
+}
+
+/* ==========================================================================
+   3D PRODUCT STUDIO PRESENTATION
+   ========================================================================== */
+
+/* Elevated Product Photography Studio Stage with Violet Atmosphere */
+.product-studio-stage {
+  position: relative;
+  background: radial-gradient(circle at 50% 45%, #18244B 0%, #0D1530 65%, #070B1A 100%);
+  box-shadow: 
+    inset 0 1px 0 rgba(255, 255, 255, 0.15),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.6),
+    0 10px 30px -8px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+}
+
+/* Soft contact shadow simulating physical grounding on studio pedestal */
+.product-contact-shadow {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70%;
+  height: 10px;
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.35) 50%, transparent 75%);
+  filter: blur(3px);
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* Physical realistic product drop shadow */
+.product-3d-shadow {
+  filter: drop-shadow(0 16px 20px rgba(0, 0, 0, 0.6)) drop-shadow(0 4px 8px rgba(124, 58, 237, 0.2));
+}
+
+/* Gentle engineered slow floating motion */
+@keyframes engineered-float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-4px) rotate(0.2deg);
+  }
+}
+
+.animate-float-subtle {
+  animation: engineered-float 6s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+}
+
+/* ==========================================================================
+   BUTTONS & TACTILE CONTROLS (VIOLET BENCHMARK + GREEN CONVERSION)
+   ========================================================================== */
+
+/* Primary Conversion Button with High-Intent Emerald Aura */
+.btn-conversion-green {
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(180deg, #10B981 0%, #059669 100%);
+  border: 1px solid rgba(16, 185, 129, 0.8);
+  box-shadow: 
+    0 4px 14px -2px rgba(16, 185, 129, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+  transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+  color: #FFFFFF;
+}
+
+.btn-conversion-green:hover {
+  background: linear-gradient(180deg, #34D399 0%, #10B981 100%);
+  transform: translateY(-1.5px);
+  box-shadow: 
+    0 8px 22px -3px rgba(16, 185, 129, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+.btn-conversion-green:active {
+  transform: translateY(0.5px);
+  box-shadow: 0 1px 3px rgba(16, 185, 129, 0.4);
+}
+
+/* Primary Studio Action (Precision Steel Blue + Electric Cyan Inset) */
+.btn-tactile-primary {
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(180deg, #1B3E6B 0%, #0B1F36 100%);
+  border: 1px solid rgba(53, 198, 232, 0.7);
+  box-shadow: 
+    0 4px 18px -2px rgba(53, 198, 232, 0.35),
+    0 10px 24px -6px rgba(7, 20, 38, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.4);
+  transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+  color: #FFFFFF;
+}
+
+.btn-tactile-primary:hover {
+  background: linear-gradient(180deg, #234E85 0%, #0F2A4A 100%);
+  border-color: rgba(53, 198, 232, 0.95);
+  transform: translateY(-1.5px);
+  box-shadow: 
+    0 8px 24px -2px rgba(53, 198, 232, 0.5),
+    0 0 24px rgba(53, 198, 232, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.45);
+}
+
+.btn-tactile-primary:active {
+  transform: translateY(0.5px);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Secondary Obsidian Dark Button */
+.btn-tactile-dark {
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(180deg, #131B38 0%, #0A1024 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 
+    0 2px 6px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+  color: #FFFFFF;
+}
+
+.btn-tactile-dark:hover {
+  background: linear-gradient(180deg, #1A244C 0%, #0E1632 100%);
+  border-color: rgba(53, 198, 232, 0.6);
+  transform: translateY(-1.5px);
+  box-shadow: 
+    0 6px 18px -2px rgba(0, 0, 0, 0.5),
+    0 0 14px rgba(53, 198, 232, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18);
+}
+
+.btn-tactile-dark:active {
+  transform: translateY(0.5px);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+/* Light / Translucent Card Button */
+.btn-tactile-light {
+  font-family: 'Inter', sans-serif;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+  color: #F8FAFC;
+}
+
+.btn-tactile-light:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-1.5px);
+  color: #FFFFFF;
+}
+
+.btn-tactile-light:active {
+  transform: translateY(0.5px);
+}
+
+/* ==========================================================================
+   VIEWPORT REVEAL & STAGGERED ENTRANCE TRANSITIONS
+   ========================================================================== */
+
+.section-reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.section-reveal.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered Children for Editorial Visual Cadence */
+.section-reveal .stagger-item {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.section-reveal.is-revealed .stagger-item {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.section-reveal.is-revealed .stagger-item-1 {
+  transition-delay: 60ms;
+}
+
+.section-reveal.is-revealed .stagger-item-2 {
+  transition-delay: 140ms;
+}
+
+.section-reveal.is-revealed .stagger-item-3 {
+  transition-delay: 220ms;
+}
+
+.section-reveal.is-revealed .stagger-item-4 {
+  transition-delay: 300ms;
+}
+
+.section-reveal.is-revealed .stagger-item-5 {
+  transition-delay: 380ms;
+}
+
+/* ==========================================================================
+   TECHNICAL DIVIDERS & SECTION SEPARATION
+   ========================================================================== */
+
+.divider-technical {
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.08) 25%, rgba(53, 198, 232, 0.4) 50%, rgba(255, 255, 255, 0.08) 75%, transparent 100%);
+}
+
+.divider-technical-dark {
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(23, 58, 94, 0.5) 25%, #35C6E8 50%, rgba(23, 58, 94, 0.5) 75%, transparent 100%);
+}
+
+/* ==========================================================================
+   ACCESSIBILITY & REDUCED MOTION SUPPORT
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

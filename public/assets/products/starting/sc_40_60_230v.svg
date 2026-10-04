@@ -1,0 +1,269 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 800" width="100%" height="100%">
+  <defs>
+    <!-- Background Atmospheric Lighting & Vignette -->
+    <radialGradient id="bgLight" cx="50%" cy="45%" r="70%">
+      <stop offset="0%" stop-color="#0F2848" stop-opacity="0.9"/>
+      <stop offset="40%" stop-color="#08172B" stop-opacity="0.98"/>
+      <stop offset="100%" stop-color="#020813" stop-opacity="1"/>
+    </radialGradient>
+    
+    <radialGradient id="cyanArcGlow" cx="20%" cy="25%" r="45%">
+      <stop offset="0%" stop-color="#35C6E8" stop-opacity="0.55"/>
+      <stop offset="40%" stop-color="#0066FF" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="rightPanelBokeh" cx="85%" cy="30%" r="35%">
+      <stop offset="0%" stop-color="#0066FF" stop-opacity="0.25"/>
+      <stop offset="70%" stop-color="#071426" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- White Canister 3D Curved Cylindrical Gradient -->
+    <linearGradient id="whiteCylinder" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#CBD5E1"/>
+      <stop offset="8%" stop-color="#E2E8F0"/>
+      <stop offset="25%" stop-color="#FFFFFF"/>
+      <stop offset="65%" stop-color="#F8FAFC"/>
+      <stop offset="85%" stop-color="#E2E8F0"/>
+      <stop offset="100%" stop-color="#94A3B8"/>
+    </linearGradient>
+
+    <!-- Top Cap Rim Shading -->
+    <linearGradient id="capRim" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#E2E8F0"/>
+      <stop offset="30%" stop-color="#FFFFFF"/>
+      <stop offset="75%" stop-color="#E2E8F0"/>
+      <stop offset="100%" stop-color="#CBD5E1"/>
+    </linearGradient>
+
+    <!-- Black Heavy Lead Wires 3D Shading -->
+    <linearGradient id="blackWire3D" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#475569"/>
+      <stop offset="30%" stop-color="#1E293B"/>
+      <stop offset="70%" stop-color="#0F172A"/>
+      <stop offset="100%" stop-color="#020617"/>
+    </linearGradient>
+
+    <!-- Bare Copper Conductor Wire Shading -->
+    <linearGradient id="bareCopper" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FDBA74"/>
+      <stop offset="35%" stop-color="#EA580C"/>
+      <stop offset="70%" stop-color="#C2410C"/>
+      <stop offset="100%" stop-color="#7C2D12"/>
+    </linearGradient>
+
+    <!-- Blue/Cyan Lightning Beam -->
+    <linearGradient id="boltGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="40%" stop-color="#67E8F9"/>
+      <stop offset="80%" stop-color="#38BDF8"/>
+      <stop offset="100%" stop-color="#0284C7"/>
+    </linearGradient>
+
+    <!-- Floor Drop Shadow / Wet Reflection -->
+    <radialGradient id="floorReflection" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#000000" stop-opacity="0.95"/>
+      <stop offset="60%" stop-color="#000000" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+
+    <filter id="boltGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="8" result="blur1" />
+      <feGaussianBlur stdDeviation="3" result="blur2" />
+      <feMerge>
+        <feMergeNode in="blur1" />
+        <feMergeNode in="blur2" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- Metal Floor Pattern -->
+    <pattern id="metalFloor" width="16" height="16" patternUnits="userSpaceOnUse">
+      <rect width="16" height="16" fill="#0A1320" />
+      <circle cx="8" cy="8" r="2.5" fill="#040810" stroke="#17263C" stroke-width="0.8" />
+    </pattern>
+  </defs>
+
+  <!-- 1. Background Studio Canvas -->
+  <rect width="1000" height="800" fill="url(#bgLight)" />
+  <circle cx="200" cy="200" r="380" fill="url(#cyanArcGlow)" />
+  <circle cx="850" cy="250" r="300" fill="url(#rightPanelBokeh)" />
+
+  <!-- Background Electrical Substation & Control Equipment Bokeh -->
+  <g opacity="0.4">
+    <!-- Right Control Panel Frames -->
+    <rect x="750" y="80" width="220" height="480" rx="8" fill="#071220" stroke="#173A5E" stroke-width="1.5" />
+    <circle cx="800" cy="130" r="8" fill="#EF4444" opacity="0.8" />
+    <circle cx="830" cy="130" r="8" fill="#F59E0B" opacity="0.8" />
+    <circle cx="860" cy="130" r="8" fill="#35C6E8" opacity="0.9" />
+    <rect x="780" y="170" width="160" height="110" rx="4" fill="#040B14" stroke="#1E3A5F" />
+    <line x1="800" y1="220" x2="920" y2="220" stroke="#35C6E8" stroke-width="1.5" stroke-dasharray="4,4" opacity="0.7"/>
+    <rect x="780" y="310" width="70" height="90" rx="4" fill="#040B14" stroke="#1E3A5F" />
+    <rect x="870" y="310" width="70" height="90" rx="4" fill="#040B14" stroke="#1E3A5F" />
+    
+    <!-- Left Industrial Switchgear Outline -->
+    <rect x="30" y="120" width="160" height="420" rx="6" fill="#06101D" stroke="#152C48" stroke-width="1" />
+    <circle cx="80" cy="180" r="6" fill="#35C6E8" opacity="0.8" />
+    <circle cx="110" cy="180" r="6" fill="#10B981" opacity="0.8" />
+  </g>
+
+  <!-- 2. Dramatic Blue/Cyan Lightning Arcs -->
+  <g filter="url(#boltGlow)">
+    <!-- Main Left Lightning Bolt -->
+    <path d="M 120 0 L 160 80 L 135 130 L 220 230 L 190 280 L 270 380 L 240 430 L 310 520" 
+          fill="none" stroke="url(#boltGrad)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+    <!-- Secondary lightning forks -->
+    <path d="M 160 80 L 240 120 L 215 160 L 290 220" fill="none" stroke="#67E8F9" stroke-width="2" stroke-linecap="round" opacity="0.9" />
+    <path d="M 220 230 L 160 300 L 180 340" fill="none" stroke="#38BDF8" stroke-width="1.8" stroke-linecap="round" opacity="0.8" />
+    <path d="M 270 380 L 340 420" fill="none" stroke="#A5F3FC" stroke-width="1.5" stroke-linecap="round" opacity="0.85" />
+    
+    <!-- Ambient upper lightning branch -->
+    <path d="M 50 30 L 90 90 L 70 140 L 120 200" fill="none" stroke="#38BDF8" stroke-width="1.5" stroke-linecap="round" opacity="0.6" />
+    <path d="M 450 0 L 480 50 L 465 80 L 510 130" fill="none" stroke="#67E8F9" stroke-width="1.5" stroke-linecap="round" opacity="0.5" />
+  </g>
+
+  <!-- 3. Heavy Perforated Metal Floor & Wet Reflections -->
+  <g>
+    <!-- Perspective Floor Trapeze -->
+    <path d="M 0 600 L 1000 600 L 1000 800 L 0 800 Z" fill="url(#metalFloor)" />
+    <!-- Floor Dark Overlay & Shadow -->
+    <rect x="0" y="600" width="1000" height="200" fill="#040912" opacity="0.6" />
+    <line x1="0" y1="600" x2="1000" y2="600" stroke="#1E3A5F" stroke-width="2" />
+    <!-- Blue/Cyan Sheen on Wet Floor -->
+    <ellipse cx="530" cy="620" rx="360" ry="40" fill="url(#cyanArcGlow)" opacity="0.4" />
+    <!-- Capacitor Base Drop Shadow -->
+    <ellipse cx="535" cy="725" rx="190" ry="38" fill="url(#floorReflection)" />
+  </g>
+
+  <!-- ======================================================== -->
+  <!-- 4. TOP BLACK LEAD WIRES (CURVING TO THE LEFT)            -->
+  <!-- ======================================================== -->
+  <g>
+    <!-- Left Lead Wire (Shadow + Outer Insulation) -->
+    <path d="M 460 215 C 440 150, 360 85, 295 120 C 255 145, 255 240, 260 410" 
+          fill="none" stroke="#000000" stroke-width="22" stroke-linecap="round" opacity="0.6" />
+    <path d="M 460 215 C 440 150, 360 85, 295 120 C 255 145, 255 240, 260 410" 
+          fill="none" stroke="url(#blackWire3D)" stroke-width="16" stroke-linecap="round" />
+    <!-- Left Wire Highlight Sheen -->
+    <path d="M 458 215 C 438 152, 362 90, 298 122 C 260 146, 258 240, 262 410" 
+          fill="none" stroke="#94A3B8" stroke-width="2.5" stroke-linecap="round" opacity="0.55" />
+    <!-- Left Bare Stripped Copper Tip -->
+    <path d="M 260 410 L 260 470" fill="none" stroke="url(#bareCopper)" stroke-width="7" stroke-linecap="round" />
+    <path d="M 258 430 L 255 465" fill="none" stroke="#FED7AA" stroke-width="1.8" stroke-linecap="round" opacity="0.9" />
+
+    <!-- Right Lead Wire (Shadow + Outer Insulation) -->
+    <path d="M 478 215 C 455 135, 385 70, 315 105 C 280 128, 280 230, 295 410" 
+          fill="none" stroke="#000000" stroke-width="22" stroke-linecap="round" opacity="0.6" />
+    <path d="M 478 215 C 455 135, 385 70, 315 105 C 280 128, 280 230, 295 410" 
+          fill="none" stroke="url(#blackWire3D)" stroke-width="16" stroke-linecap="round" />
+    <!-- Right Wire Highlight Sheen -->
+    <path d="M 476 215 C 453 137, 387 75, 318 107 C 284 130, 283 230, 297 410" 
+          fill="none" stroke="#94A3B8" stroke-width="2.5" stroke-linecap="round" opacity="0.55" />
+    <!-- Right Bare Stripped Copper Tip -->
+    <path d="M 295 410 L 320 468" fill="none" stroke="url(#bareCopper)" stroke-width="7" stroke-linecap="round" />
+    <path d="M 297 428 L 318 464" fill="none" stroke="#FED7AA" stroke-width="1.8" stroke-linecap="round" opacity="0.9" />
+
+    <!-- Wire Exit Bushing at Canister Top Center -->
+    <ellipse cx="468" cy="216" rx="28" ry="10" fill="#E2E8F0" stroke="#CBD5E1" stroke-width="1.5" />
+    <ellipse cx="468" cy="214" rx="20" ry="7" fill="#0F172A" />
+  </g>
+
+  <!-- ======================================================== -->
+  <!-- 5. MAIN WHITE CYLINDRICAL CANISTER BODY                  -->
+  <!-- ======================================================== -->
+  <g>
+    <!-- Top Cap Bevel / Rim -->
+    <ellipse cx="535" cy="225" rx="142" ry="24" fill="url(#capRim)" stroke="#CBD5E1" stroke-width="1.5" />
+    <ellipse cx="535" cy="224" rx="136" ry="21" fill="#F8FAFC" />
+
+    <!-- Cylinder Body (Smooth White Plastic) -->
+    <path d="M 395 225 L 395 700 C 395 730, 675 730, 675 700 L 675 225 Z" 
+          fill="url(#whiteCylinder)" stroke="#CBD5E1" stroke-width="1.5" />
+
+    <!-- Canister Bottom Beveled Base -->
+    <path d="M 395 700 C 395 732, 675 732, 675 700 C 675 722, 395 722, 395 700 Z" 
+          fill="#94A3B8" />
+
+    <!-- Left Edge Specular Highlight Stripe -->
+    <path d="M 425 230 L 425 695 C 425 705, 442 707, 442 695 L 442 230 Z" 
+          fill="#FFFFFF" opacity="0.6" />
+
+    <!-- Subtle Moisture Droplets on Canister Shell -->
+    <g fill="#FFFFFF" opacity="0.75">
+      <circle cx="430" cy="340" r="1.8" />
+      <circle cx="433" cy="346" r="1.2" />
+      <circle cx="420" cy="480" r="2.0" />
+      <circle cx="428" cy="560" r="1.5" />
+      <circle cx="640" cy="380" r="1.6" />
+      <circle cx="645" cy="510" r="2.2" />
+      <circle cx="638" cy="620" r="1.8" />
+    </g>
+  </g>
+
+  <!-- ======================================================== -->
+  <!-- 6. PRINTED TECHNICAL SPECIFICATIONS (GREEN TYPOGRAPHY)  -->
+  <!-- ======================================================== -->
+  <g transform="translate(535, 360)" text-anchor="middle">
+    
+    <!-- 1. Header: A.C. MOTOR START -->
+    <text x="0" y="0" font-family="'Space Grotesk', -apple-system, sans-serif" 
+          font-size="25" font-weight="900" fill="#064E3B" letter-spacing="2.5">
+      A.C. MOTOR START
+    </text>
+
+    <!-- 2. Primary Rating: 40/60 µF - 230V -->
+    <text x="0" y="38" font-family="'Space Grotesk', -apple-system, sans-serif" 
+          font-size="23" font-weight="800" fill="#064E3B" letter-spacing="1.2">
+      40/60 µF - 230V
+    </text>
+
+    <!-- 3. Surge Voltage: 275V SURGE -->
+    <text x="0" y="70" font-family="'Space Grotesk', -apple-system, sans-serif" 
+          font-size="20" font-weight="800" fill="#064E3B" letter-spacing="2">
+      275V SURGE
+    </text>
+
+    <!-- 4. Temperature Range: -30°C/ +70°C -->
+    <text x="0" y="100" font-family="'Space Grotesk', -apple-system, sans-serif" 
+          font-size="19" font-weight="700" fill="#064E3B" letter-spacing="1">
+      -30°C/ +70°C
+    </text>
+
+    <!-- 5. Duty Cycle: 1.7% DUTY CYCLE -->
+    <text x="0" y="130" font-family="'Space Grotesk', -apple-system, sans-serif" 
+          font-size="19" font-weight="800" fill="#064E3B" letter-spacing="1.8">
+      1.7% DUTY CYCLE
+    </text>
+
+    <!-- 6. Stylized Interlocked "NC" Brand Mark -->
+    <g transform="translate(0, 195)">
+      <!-- Left Stem of N -->
+      <path d="M -42 12 L -42 -26 L -28 -26 L -28 12 Z" fill="#064E3B" />
+      <!-- Diagonal of N -->
+      <path d="M -30 -26 L -10 12 L 2 12 L -18 -26 Z" fill="#064E3B" />
+      <!-- Right Stem of N & C curve loop -->
+      <path d="M -14 12 L -14 -26 L 0 -26 L 0 12 Z" fill="#064E3B" />
+      <!-- Intertwined C Arch -->
+      <path d="M 28 -24 C 8 -26, -2 -8, -2 3 C -2 16, 10 26, 32 26 C 38 26, 42 24, 42 24 L 40 12 C 40 12, 35 15, 28 15 C 16 15, 12 8, 12 1 C 12 -7, 16 -15, 28 -15 C 34 -15, 38 -12, 38 -12 L 40 -24 Z" 
+            fill="#064E3B" />
+    </g>
+
+    <!-- 7. NEUTRACAP Wordmark -->
+    <text x="0" y="248" font-family="'Space Grotesk', -apple-system, sans-serif" 
+          font-size="25" font-weight="900" fill="#064E3B" letter-spacing="3.5">
+      NEUTRACAP
+    </text>
+
+    <!-- 8. EST. 1989 -->
+    <text x="0" y="278" font-family="'Space Grotesk', -apple-system, sans-serif" 
+          font-size="16" font-weight="800" fill="#064E3B" letter-spacing="2">
+      EST. 1989
+    </text>
+
+    <!-- 9. MADE IN INDIA -->
+    <text x="0" y="306" font-family="'Space Grotesk', -apple-system, sans-serif" 
+          font-size="14.5" font-weight="800" fill="#064E3B" letter-spacing="1.5">
+      MADE IN INDIA
+    </text>
+  </g>
+</svg>
