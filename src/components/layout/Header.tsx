@@ -50,7 +50,8 @@ export const Header: React.FC<HeaderProps> = ({
   return (
     <header 
       id="main-site-header"
-      className="sticky top-0 z-40 w-full bg-[#060D1A]/90 backdrop-blur-2xl border-b border-[#35C6E8]/25 text-white transition-all shadow-[0_10px_35px_rgba(0,0,0,0.6),inset_0_-1px_0_rgba(255,255,255,0.06)]"
+      style={{ boxShadow: '0 4px 20px rgba(0, 0, 0, 0.4)', borderBottom: '1px solid rgba(255, 255, 255, 0.05)' }}
+      className="sticky top-0 z-40 w-full bg-[#060D1A]/90 backdrop-blur-2xl border-b border-[rgba(255,255,255,0.05)] text-white transition-all shadow-[0_4px_20px_rgba(0,0,0,0.4)]"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">

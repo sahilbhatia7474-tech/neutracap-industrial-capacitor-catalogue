@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -36,10 +36,20 @@
     <meta name="twitter:description" content="Precision engineered industrial capacitors: Starting, Running, Green Filter &amp; DC Aluminium Electrolytic. 490 baseline variants." />
     <meta name="twitter:image" content="/assets/brand/neutracap_og.png" />
 
-    <!-- Google Web Fonts: Sora, Space Grotesk, Inter, IBM Plex Mono -->
+    <!-- Performance: Resource Hints & Fast Preconnects -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+    <link rel="dns-prefetch" href="https://images.unsplash.com" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Sora:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
+
+    <!-- Google Web Fonts: Sora, Space Grotesk, Inter, IBM Plex Mono (Non-blocking async load) -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:ital,opsz,wght@0,14..32,300..800;1,14..32,400..600&family=Sora:wght@500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:ital,opsz,wght@0,14..32,300..800;1,14..32,400..600&family=Sora:wght@500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" media="print" onload="this.media='all'" />
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:ital,opsz,wght@0,14..32,300..800;1,14..32,400..600&family=Sora:wght@500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" />
+    </noscript>
 
     <!-- JSON-LD Structured Data for SEO & Rich Results -->
     <script type="application/ld+json">

@@ -367,38 +367,48 @@ export const FindYourCapacitorSection: React.FC<FindYourCapacitorSectionProps> =
         </div>
 
         {/* Results Grid Preview */}
+        {/* Results Grid Preview — Ultra Modern 3D Interactive Podium */}
         <div id="finder-results-stage" className="mt-14">
           {displayedProducts.length > 0 ? (
-            <div>
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-7 pb-4 border-b border-white/10 gap-3">
+            <div className="rounded-3xl bg-gradient-to-b from-[#08182E]/90 via-[#051122]/95 to-[#020713]/98 border border-[#35C6E8]/35 p-6 sm:p-8 md:p-10 shadow-[0_25px_80px_rgba(0,0,0,0.9),0_0_40px_rgba(53,198,232,0.18),inset_0_1px_2px_rgba(255,255,255,0.25)] relative overflow-hidden backdrop-blur-2xl group">
+              {/* Top 3D Specular Laser Hairline */}
+              <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#35C6E8] to-transparent shadow-[0_0_15px_#35C6E8] pointer-events-none"></div>
+
+              {/* Internal 3D Volumetric Atmosphere Glows */}
+              <div className="absolute -top-24 -left-24 w-80 h-80 bg-[#35C6E8]/12 rounded-full blur-3xl pointer-events-none"></div>
+              <div className="absolute -bottom-24 -right-24 w-80 h-80 bg-[#10B981]/10 rounded-full blur-3xl pointer-events-none"></div>
+
+              {/* 3D Hardware Telemetry Stage Header */}
+              <div className="relative z-10 flex flex-col sm:flex-row sm:items-center justify-between mb-8 pb-5 border-b border-white/10 gap-4">
                 <div>
                   <div className="text-xs font-mono font-bold uppercase tracking-wider text-white flex items-center gap-2.5">
                     {isDefaultPreview ? (
-                      <>
-                        <Sparkles className="w-4 h-4 text-[#35C6E8] filter drop-shadow-[0_0_5px_#35C6E8]" />
-                        <span className="tracking-[0.16em]">REPRESENTATIVE PREVIEW · 2 MODELS PER FAMILY ({displayedProducts.length} OF {activeFamilyCount})</span>
-                      </>
+                      <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-gradient-to-r from-[#173A5E]/80 to-[#0B223D] border border-[#35C6E8]/50 shadow-[0_0_15px_rgba(53,198,232,0.3)]">
+                        <Sparkles className="w-3.5 h-3.5 text-[#35C6E8] filter drop-shadow-[0_0_5px_#35C6E8]" />
+                        <span className="tracking-[0.16em] text-[#35C6E8]">REPRESENTATIVE PREVIEW · 2 MODELS PER FAMILY ({displayedProducts.length} OF {activeFamilyCount})</span>
+                      </div>
                     ) : (
-                      <>
-                        <CheckCircle2 className="w-4 h-4 text-emerald-400 filter drop-shadow-[0_0_5px_#10B981]" />
-                        <span className="tracking-[0.16em]">EXACT VERIFIED CATALOGUE MATCHES ({exactMatches.length})</span>
-                      </>
+                      <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-gradient-to-r from-[#062618] to-[#03150D] border border-emerald-400/60 shadow-[0_0_15px_rgba(16,185,129,0.3)]">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 filter drop-shadow-[0_0_5px_#10B981]" />
+                        <span className="tracking-[0.16em] text-emerald-400">EXACT VERIFIED CATALOGUE MATCHES ({exactMatches.length})</span>
+                      </div>
                     )}
                   </div>
                   {isDefaultPreview && (
-                    <p className="text-xs text-slate-400 mt-1.5 font-sans leading-relaxed">
+                    <p className="text-xs text-slate-300 mt-2.5 font-sans leading-relaxed max-w-2xl">
                       Showing baseline representative cards. All {CATALOGUE_SUMMARY.total} variants remain interactive through parametric filters, horizontal rails, and technical search.
                     </p>
                   )}
                 </div>
 
-                <span className="text-[11px] font-mono text-emerald-300 font-bold self-start sm:self-auto bg-gradient-to-r from-emerald-950/80 to-[#062417] px-3.5 py-1.5 rounded-xl border border-emerald-400/50 shadow-[0_0_12px_rgba(16,185,129,0.35)]">
-                  {isDefaultPreview ? 'Representative Baseline' : '100% Verified Specification'}
+                <span className="text-[11px] font-mono text-emerald-300 font-bold self-start sm:self-auto bg-gradient-to-r from-emerald-950/80 via-[#062417] to-emerald-950/80 px-4 py-2 rounded-xl border border-emerald-400/60 shadow-[0_0_15px_rgba(16,185,129,0.35),inset_0_1px_1px_rgba(255,255,255,0.2)] flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_6px_#34D399]"></span>
+                  <span>{isDefaultPreview ? 'Representative Baseline' : '100% Verified Specification'}</span>
                 </span>
               </div>
 
-              {/* Strict Max 8 Cards Default Grid (or Exact Filter Matches) */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+              {/* Strict Max 8 Cards Default Grid (or Exact Filter Matches) with Elevated 3D Spacing */}
+              <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 pt-1">
                 {displayedProducts.map((product) => (
                   <ProductCard
                     key={product.id}
@@ -409,6 +419,19 @@ export const FindYourCapacitorSection: React.FC<FindYourCapacitorSectionProps> =
                     onAddToCart={onAddToCart}
                   />
                 ))}
+              </div>
+
+              {/* Bottom Telemetry Verification Strip */}
+              <div className="relative z-10 mt-9 pt-5 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between text-[11px] font-mono text-slate-400 gap-3">
+                <div className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#35C6E8]"></span>
+                  <span>SCADA PARAMETRIC TELEMETRY · CANONICAL 490 DATABASE INTEGRITY</span>
+                </div>
+                <div className="flex items-center gap-4 text-slate-300">
+                  <span className="text-emerald-400 font-bold">100% HI-POT TESTED</span>
+                  <span>·</span>
+                  <span>DIRECT EX-FACTORY DISPATCH</span>
+                </div>
               </div>
             </div>
           ) : (

@@ -162,39 +162,44 @@ export const CustomRequirementSection: React.FC<CustomRequirementSectionProps> =
         </div>
       </section>
 
-      {/* Detailed Technical Requirement Modal */}
+      {/* Detailed Technical Requirement Modal — Premium Dark Engineering Console */}
       {isModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#071426]/80 backdrop-blur-xs animate-in fade-in duration-150">
-          <div className="bg-white rounded-2xl border border-[#CBD5E1] shadow-2xl max-w-2xl w-full max-h-[92vh] overflow-y-auto p-6 sm:p-8 relative">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-5 bg-[#020713]/85 backdrop-blur-md animate-in fade-in duration-200 select-none overflow-y-auto">
+          <div className="bg-gradient-to-b from-[#0B2038] via-[#071629] to-[#030B17] rounded-3xl border border-[#35C6E8]/40 shadow-[0_25px_70px_rgba(0,0,0,0.9),0_0_40px_rgba(53,198,232,0.18),inset_0_1px_2px_rgba(255,255,255,0.25)] max-w-2xl w-full max-h-[92vh] overflow-y-auto p-6 sm:p-8 relative text-white my-auto">
             
+            {/* Top 3D Specular Laser Hairline */}
+            <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#35C6E8] to-transparent shadow-[0_0_15px_#35C6E8] pointer-events-none"></div>
+
             {/* Close Button */}
             <button
               onClick={() => setIsModalOpen(false)}
-              className="absolute top-5 right-5 p-2 rounded-lg text-[#64748B] hover:text-[#071426] hover:bg-[#F4F7FA] transition-colors"
+              className="absolute top-5 right-5 p-2 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white border border-white/15 hover:border-[#35C6E8]/60 shadow-[0_2px_8px_rgba(0,0,0,0.4),inset_0_1px_1px_rgba(255,255,255,0.2)] transition-all cursor-pointer active:scale-95"
               aria-label="Close modal"
             >
               <X className="w-5 h-5" />
             </button>
 
             {/* Modal Header */}
-            <div className="mb-6 pb-4 border-b border-[#E2E8F0]">
-              <div className="flex items-center gap-2 text-xs font-mono font-bold tracking-wider text-[#173A5E] uppercase mb-1">
+            <div className="mb-6 pb-4 border-b border-white/10">
+              <div className="flex items-center gap-2 text-xs font-mono font-bold tracking-widest text-[#35C6E8] uppercase mb-1.5">
                 <ShieldCheck className="w-4 h-4 text-[#35C6E8]" />
-                <span>OEM CUSTOM ENGINEERING DESK</span>
+                <span>OEM CUSTOM ENGINEERING CONSOLE</span>
               </div>
-              <h3 className="text-xl sm:text-2xl font-bold text-[#071426] font-display">
+              <h3 className="text-xl sm:text-2xl font-black text-white font-display tracking-tight">
                 BUILD A SPECIFICATION AROUND YOUR APPLICATION.
               </h3>
-              <p className="text-xs sm:text-sm text-[#475569] mt-1 font-sans leading-relaxed">
+              <p className="text-xs sm:text-sm text-slate-300 mt-1.5 font-sans leading-relaxed">
                 Tell our engineering desk what you need. We’ll translate your requirement into a manufacturable capacitor specification.
               </p>
             </div>
 
             {isSubmitted ? (
-              <div className="py-12 text-center space-y-3">
-                <CheckCircle2 className="w-12 h-12 text-[#16A34A] mx-auto" />
-                <h4 className="text-lg font-bold text-[#071426] font-display">Specification Received</h4>
-                <p className="text-xs sm:text-sm text-[#475569] max-w-md mx-auto leading-relaxed font-sans">
+              <div className="py-12 text-center space-y-4">
+                <div className="w-16 h-16 rounded-3xl bg-gradient-to-b from-[#062618] via-[#03180F] to-[#010B07] text-[#10B981] border border-emerald-400/60 flex items-center justify-center mx-auto shadow-[0_0_25px_rgba(16,185,129,0.4),inset_0_1px_2px_rgba(255,255,255,0.3)]">
+                  <CheckCircle2 className="w-9 h-9 text-emerald-400 filter drop-shadow-[0_0_8px_#10B981]" />
+                </div>
+                <h4 className="text-xl font-black text-white font-display">Specification Received</h4>
+                <p className="text-xs sm:text-sm text-slate-300 max-w-md mx-auto leading-relaxed font-sans">
                   Our engineering team has received your custom requirements and will review feasibility and pricing within 24 business hours.
                 </p>
               </div>
@@ -203,40 +208,40 @@ export const CustomRequirementSection: React.FC<CustomRequirementSectionProps> =
                 {/* 1. Category & Application/Duty */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-sans font-semibold text-[#071426] mb-1">
+                    <label className="block text-xs font-mono font-bold tracking-[0.12em] text-slate-200 uppercase mb-1.5">
                       Capacitor Architecture *
                     </label>
                     <select
                       required
                       value={formData.familyId}
                       onChange={(e) => handleInputChange('familyId', e.target.value as ProductFamilyId)}
-                      className="w-full h-11 px-3 rounded-lg bg-[#F4F7FA] border border-[#CBD5E1] text-xs sm:text-sm font-sans font-medium text-[#071426] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#173A5E]"
+                      className="w-full h-11 px-3.5 rounded-xl bg-gradient-to-b from-[#061426] to-[#020914] border border-[#173A5E] hover:border-[#35C6E8]/60 focus:border-[#35C6E8] focus:ring-2 focus:ring-[#35C6E8]/30 text-xs sm:text-sm font-mono text-white shadow-[inset_0_2px_5px_rgba(0,0,0,0.8)] cursor-pointer"
                     >
-                      <option value="starting">Starting Capacitors</option>
-                      <option value="green_filter">Green Filter Capacitors</option>
-                      <option value="running">Running Capacitors</option>
-                      <option value="dc_electrolytic">DC Aluminium Electrolytic</option>
+                      <option value="starting" className="bg-[#071629] text-white">Starting Capacitors</option>
+                      <option value="green_filter" className="bg-[#071629] text-white">Green Filter Capacitors</option>
+                      <option value="running" className="bg-[#071629] text-white">Running Capacitors</option>
+                      <option value="dc_electrolytic" className="bg-[#071629] text-white">DC Aluminium Electrolytic</option>
                     </select>
                   </div>
 
                   <div>
-                    <label className="block text-xs font-sans font-semibold text-[#071426] mb-1">
+                    <label className="block text-xs font-mono font-bold tracking-[0.12em] text-slate-200 uppercase mb-1.5">
                       Application / Duty *
                     </label>
                     <select
                       required
                       value={formData.application}
                       onChange={(e) => handleInputChange('application', e.target.value)}
-                      className="w-full h-11 px-3 rounded-lg bg-[#F4F7FA] border border-[#CBD5E1] text-xs sm:text-sm font-sans font-medium text-[#071426] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#173A5E]"
+                      className="w-full h-11 px-3.5 rounded-xl bg-gradient-to-b from-[#061426] to-[#020914] border border-[#173A5E] hover:border-[#35C6E8]/60 focus:border-[#35C6E8] focus:ring-2 focus:ring-[#35C6E8]/30 text-xs sm:text-sm font-mono text-white shadow-[inset_0_2px_5px_rgba(0,0,0,0.8)] cursor-pointer"
                     >
-                      <option value="Motor Starting">Motor Starting</option>
-                      <option value="Motor Running">Motor Running</option>
-                      <option value="APFC / Harmonic Filtering">APFC / Harmonic Filtering</option>
-                      <option value="Inverter / DC Link">Inverter / DC Link</option>
-                      <option value="Pump / Compressor">Pump / Compressor</option>
-                      <option value="Industrial Power Supply">Industrial Power Supply</option>
-                      <option value="OEM Custom Requirement">OEM Custom Requirement</option>
-                      <option value="Other">Other</option>
+                      <option value="Motor Starting" className="bg-[#071629] text-white">Motor Starting</option>
+                      <option value="Motor Running" className="bg-[#071629] text-white">Motor Running</option>
+                      <option value="APFC / Harmonic Filtering" className="bg-[#071629] text-white">APFC / Harmonic Filtering</option>
+                      <option value="Inverter / DC Link" className="bg-[#071629] text-white">Inverter / DC Link</option>
+                      <option value="Pump / Compressor" className="bg-[#071629] text-white">Pump / Compressor</option>
+                      <option value="Industrial Power Supply" className="bg-[#071629] text-white">Industrial Power Supply</option>
+                      <option value="OEM Custom Requirement" className="bg-[#071629] text-white">OEM Custom Requirement</option>
+                      <option value="Other" className="bg-[#071629] text-white">Other</option>
                     </select>
                   </div>
                 </div>
@@ -244,7 +249,7 @@ export const CustomRequirementSection: React.FC<CustomRequirementSectionProps> =
                 {/* 2. Capacitance & Voltage */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-sans font-semibold text-[#071426] mb-1">
+                    <label className="block text-xs font-mono font-bold tracking-[0.12em] text-slate-200 uppercase mb-1.5">
                       Required Capacitance *
                     </label>
                     <input
@@ -253,12 +258,12 @@ export const CustomRequirementSection: React.FC<CustomRequirementSectionProps> =
                       placeholder="e.g. 150/200 µF, 50 MFD, 4700 µF"
                       value={formData.capacitance}
                       onChange={(e) => handleInputChange('capacitance', e.target.value)}
-                      className="w-full h-11 px-3 rounded-lg bg-[#F4F7FA] border border-[#CBD5E1] text-xs sm:text-sm font-mono text-[#071426] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#173A5E]"
+                      className="w-full h-11 px-3.5 rounded-xl bg-gradient-to-b from-[#061426] to-[#020914] border border-[#173A5E] hover:border-[#35C6E8]/60 focus:border-[#35C6E8] focus:ring-2 focus:ring-[#35C6E8]/30 text-xs sm:text-sm font-mono text-white placeholder:text-slate-500 shadow-[inset_0_2px_5px_rgba(0,0,0,0.8)]"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-sans font-semibold text-[#071426] mb-1">
+                    <label className="block text-xs font-mono font-bold tracking-[0.12em] text-slate-200 uppercase mb-1.5">
                       Rated Voltage (V AC / DC) *
                     </label>
                     <input
@@ -267,7 +272,7 @@ export const CustomRequirementSection: React.FC<CustomRequirementSectionProps> =
                       placeholder="e.g. 275V AC, 440V AC, 500V DC"
                       value={formData.voltage}
                       onChange={(e) => handleInputChange('voltage', e.target.value)}
-                      className="w-full h-11 px-3 rounded-lg bg-[#F4F7FA] border border-[#CBD5E1] text-xs sm:text-sm font-mono text-[#071426] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#173A5E]"
+                      className="w-full h-11 px-3.5 rounded-xl bg-gradient-to-b from-[#061426] to-[#020914] border border-[#173A5E] hover:border-[#35C6E8]/60 focus:border-[#35C6E8] focus:ring-2 focus:ring-[#35C6E8]/30 text-xs sm:text-sm font-mono text-white placeholder:text-slate-500 shadow-[inset_0_2px_5px_rgba(0,0,0,0.8)]"
                     />
                   </div>
                 </div>
@@ -275,7 +280,7 @@ export const CustomRequirementSection: React.FC<CustomRequirementSectionProps> =
                 {/* 3. Quantity & Timeline */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-sans font-semibold text-[#071426] mb-1">
+                    <label className="block text-xs font-mono font-bold tracking-[0.12em] text-slate-200 uppercase mb-1.5">
                       Estimated Production Quantity *
                     </label>
                     <input
@@ -284,30 +289,30 @@ export const CustomRequirementSection: React.FC<CustomRequirementSectionProps> =
                       min={10}
                       value={formData.quantity}
                       onChange={(e) => handleInputChange('quantity', parseInt(e.target.value) || 10)}
-                      className="w-full h-11 px-3 rounded-lg bg-[#F4F7FA] border border-[#CBD5E1] text-xs sm:text-sm font-mono text-[#071426] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#173A5E]"
+                      className="w-full h-11 px-3.5 rounded-xl bg-gradient-to-b from-[#061426] to-[#020914] border border-[#173A5E] hover:border-[#35C6E8]/60 focus:border-[#35C6E8] focus:ring-2 focus:ring-[#35C6E8]/30 text-xs sm:text-sm font-mono text-white placeholder:text-slate-500 shadow-[inset_0_2px_5px_rgba(0,0,0,0.8)]"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-sans font-semibold text-[#071426] mb-1">
+                    <label className="block text-xs font-mono font-bold tracking-[0.12em] text-slate-200 uppercase mb-1.5">
                       Target Delivery Schedule
                     </label>
                     <select
                       value={formData.targetTimeline}
                       onChange={(e) => handleInputChange('targetTimeline', e.target.value)}
-                      className="w-full h-11 px-3 rounded-lg bg-[#F4F7FA] border border-[#CBD5E1] text-xs sm:text-sm font-sans font-medium text-[#071426] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#173A5E]"
+                      className="w-full h-11 px-3.5 rounded-xl bg-gradient-to-b from-[#061426] to-[#020914] border border-[#173A5E] hover:border-[#35C6E8]/60 focus:border-[#35C6E8] focus:ring-2 focus:ring-[#35C6E8]/30 text-xs sm:text-sm font-mono text-white shadow-[inset_0_2px_5px_rgba(0,0,0,0.8)] cursor-pointer"
                     >
-                      <option value="Urgent Prototype (1-2 Weeks)">Urgent Prototype (1-2 Weeks)</option>
-                      <option value="Within 2-4 Weeks">Standard Batch (Within 2-4 Weeks)</option>
-                      <option value="Scheduled OEM Production Contract">Scheduled OEM Production Contract</option>
+                      <option value="Urgent Prototype (1-2 Weeks)" className="bg-[#071629] text-white">Urgent Prototype (1-2 Weeks)</option>
+                      <option value="Within 2-4 Weeks" className="bg-[#071629] text-white">Standard Batch (Within 2-4 Weeks)</option>
+                      <option value="Scheduled OEM Production Contract" className="bg-[#071629] text-white">Scheduled OEM Production Contract</option>
                     </select>
                   </div>
                 </div>
 
                 {/* 4. Contact Info */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2 border-t border-[#E2E8F0]">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-3 border-t border-white/10">
                   <div>
-                    <label className="block text-xs font-sans font-semibold text-[#071426] mb-1">
+                    <label className="block text-xs font-mono font-bold tracking-[0.12em] text-slate-200 uppercase mb-1.5">
                       Your Name *
                     </label>
                     <input
@@ -316,12 +321,12 @@ export const CustomRequirementSection: React.FC<CustomRequirementSectionProps> =
                       placeholder="e.g. Rajesh Sharma"
                       value={formData.fullName}
                       onChange={(e) => handleInputChange('fullName', e.target.value)}
-                      className="w-full h-11 px-3 rounded-lg bg-[#F4F7FA] border border-[#CBD5E1] text-xs sm:text-sm font-sans text-[#071426] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#173A5E]"
+                      className="w-full h-11 px-3.5 rounded-xl bg-gradient-to-b from-[#061426] to-[#020914] border border-[#173A5E] hover:border-[#35C6E8]/60 focus:border-[#35C6E8] focus:ring-2 focus:ring-[#35C6E8]/30 text-xs sm:text-sm font-mono text-white placeholder:text-slate-500 shadow-[inset_0_2px_5px_rgba(0,0,0,0.8)]"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-sans font-semibold text-[#071426] mb-1">
+                    <label className="block text-xs font-mono font-bold tracking-[0.12em] text-slate-200 uppercase mb-1.5">
                       Company / OEM Name (Optional)
                     </label>
                     <input
@@ -329,14 +334,14 @@ export const CustomRequirementSection: React.FC<CustomRequirementSectionProps> =
                       placeholder="e.g. Apex Industrial Drives"
                       value={formData.companyName}
                       onChange={(e) => handleInputChange('companyName', e.target.value)}
-                      className="w-full h-11 px-3 rounded-lg bg-[#F4F7FA] border border-[#CBD5E1] text-xs sm:text-sm font-sans text-[#071426] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#173A5E]"
+                      className="w-full h-11 px-3.5 rounded-xl bg-gradient-to-b from-[#061426] to-[#020914] border border-[#173A5E] hover:border-[#35C6E8]/60 focus:border-[#35C6E8] focus:ring-2 focus:ring-[#35C6E8]/30 text-xs sm:text-sm font-mono text-white placeholder:text-slate-500 shadow-[inset_0_2px_5px_rgba(0,0,0,0.8)]"
                     />
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-sans font-semibold text-[#071426] mb-1">
+                    <label className="block text-xs font-mono font-bold tracking-[0.12em] text-slate-200 uppercase mb-1.5">
                       Official Email (Optional)
                     </label>
                     <input
@@ -344,12 +349,12 @@ export const CustomRequirementSection: React.FC<CustomRequirementSectionProps> =
                       placeholder="name@company.com"
                       value={formData.email}
                       onChange={(e) => handleInputChange('email', e.target.value)}
-                      className="w-full h-11 px-3 rounded-lg bg-[#F4F7FA] border border-[#CBD5E1] text-xs sm:text-sm font-sans text-[#071426] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#173A5E]"
+                      className="w-full h-11 px-3.5 rounded-xl bg-gradient-to-b from-[#061426] to-[#020914] border border-[#173A5E] hover:border-[#35C6E8]/60 focus:border-[#35C6E8] focus:ring-2 focus:ring-[#35C6E8]/30 text-xs sm:text-sm font-mono text-white placeholder:text-slate-500 shadow-[inset_0_2px_5px_rgba(0,0,0,0.8)]"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-sans font-semibold text-[#071426] mb-1">
+                    <label className="block text-xs font-mono font-bold tracking-[0.12em] text-slate-200 uppercase mb-1.5">
                       Direct Phone / WhatsApp *
                     </label>
                     <input
@@ -358,14 +363,14 @@ export const CustomRequirementSection: React.FC<CustomRequirementSectionProps> =
                       placeholder="+91 99532 39674"
                       value={formData.phone}
                       onChange={(e) => handleInputChange('phone', e.target.value)}
-                      className="w-full h-11 px-3 rounded-lg bg-[#F4F7FA] border border-[#CBD5E1] text-xs sm:text-sm font-mono text-[#071426] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#173A5E]"
+                      className="w-full h-11 px-3.5 rounded-xl bg-gradient-to-b from-[#061426] to-[#020914] border border-[#173A5E] hover:border-[#35C6E8]/60 focus:border-[#35C6E8] focus:ring-2 focus:ring-[#35C6E8]/30 text-xs sm:text-sm font-mono text-white placeholder:text-slate-500 shadow-[inset_0_2px_5px_rgba(0,0,0,0.8)]"
                     />
                   </div>
                 </div>
 
                 {/* 5. Notes / Details */}
                 <div>
-                  <label className="block text-xs font-sans font-semibold text-[#071426] mb-1">
+                  <label className="block text-xs font-mono font-bold tracking-[0.12em] text-slate-200 uppercase mb-1.5">
                     Specific Dimensional / Terminal Requirements (Optional)
                   </label>
                   <textarea
@@ -373,15 +378,15 @@ export const CustomRequirementSection: React.FC<CustomRequirementSectionProps> =
                     placeholder="Provide details such as max diameter (mm), terminal type (stud/faston/wires), temperature rating, or duty cycle..."
                     value={formData.notes}
                     onChange={(e) => handleInputChange('notes', e.target.value)}
-                    className="w-full p-3 rounded-lg bg-[#F4F7FA] border border-[#CBD5E1] text-xs sm:text-sm font-sans text-[#071426] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#173A5E]"
+                    className="w-full p-3.5 rounded-xl bg-gradient-to-b from-[#061426] to-[#020914] border border-[#173A5E] hover:border-[#35C6E8]/60 focus:border-[#35C6E8] focus:ring-2 focus:ring-[#35C6E8]/30 text-xs sm:text-sm font-mono text-white placeholder:text-slate-500 shadow-[inset_0_2px_5px_rgba(0,0,0,0.8)]"
                   />
                 </div>
 
                 {/* CTAs Cluster: Primary Submit + Secondary WhatsApp */}
-                <div className="pt-2 flex flex-col sm:flex-row items-stretch gap-2.5">
+                <div className="pt-2 flex flex-col sm:flex-row items-stretch gap-3">
                   <button
                     type="submit"
-                    className="flex-1 py-3.5 px-4 rounded-lg btn-tactile-primary text-white text-xs sm:text-sm font-sans font-bold uppercase tracking-wider flex items-center justify-center gap-2"
+                    className="flex-1 py-3.5 px-4 rounded-xl bg-gradient-to-r from-[#173A5E] via-[#0E7490] to-[#173A5E] hover:from-[#0E7490] hover:to-[#35C6E8] text-white text-xs font-mono font-bold tracking-wider uppercase flex items-center justify-center gap-2 border border-[#35C6E8]/70 shadow-[0_8px_25px_rgba(14,116,144,0.4),inset_0_1px_2px_rgba(255,255,255,0.4)] hover:shadow-[0_0_30px_rgba(53,198,232,0.6)] cursor-pointer active:scale-98 transition-all"
                   >
                     <Send className="w-4 h-4 text-[#35C6E8]" />
                     <span>SUBMIT SPECIFICATION TO FACTORY</span>
@@ -390,16 +395,16 @@ export const CustomRequirementSection: React.FC<CustomRequirementSectionProps> =
                   <button
                     type="button"
                     onClick={handleSendWhatsApp}
-                    className="py-3.5 px-4 rounded-lg bg-[#16A34A] hover:bg-[#15803D] text-white text-xs sm:text-sm font-sans font-bold tracking-wider flex items-center justify-center gap-2 transition-colors shadow-xs"
+                    className="py-3.5 px-5 rounded-xl bg-gradient-to-r from-[#10B981] via-[#059669] to-[#047857] hover:from-[#34D399] hover:to-[#059669] text-white text-xs font-mono font-bold tracking-wider uppercase flex items-center justify-center gap-2 border border-emerald-300/50 shadow-[0_8px_25px_rgba(16,185,129,0.35),inset_0_1px_2px_rgba(255,255,255,0.4)] cursor-pointer active:scale-98 transition-all"
                   >
-                    <WhatsAppIcon className="w-4 h-4" />
+                    <WhatsAppIcon className="w-4 h-4 text-white" />
                     <span>SEND VIA WHATSAPP</span>
                   </button>
                 </div>
 
                 {/* Desk Contact Context */}
-                <div className="text-[11px] text-[#64748B] font-sans text-center pt-2">
-                  Direct Engineering Desk: <strong className="text-[#071426]">{SITE_FACTS.founderEmail}</strong> · WhatsApp: <strong className="text-[#071426]">{SITE_FACTS.canonicalWhatsApp}</strong>
+                <div className="text-[11px] font-mono text-slate-400 text-center pt-2">
+                  Direct Engineering Desk: <strong className="text-[#35C6E8]">{SITE_FACTS.founderEmail}</strong> · WhatsApp: <strong className="text-emerald-400">{SITE_FACTS.canonicalWhatsApp}</strong>
                 </div>
               </form>
             )}

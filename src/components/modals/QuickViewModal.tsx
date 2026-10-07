@@ -33,6 +33,7 @@ import {
 import { CANONICAL_WHATSAPP_NUMBER } from '../../data/siteFacts';
 import { WhatsAppIcon } from '../common/WhatsAppIcon';
 import { FullScreenImageViewer } from './FullScreenImageViewer';
+import { OptimizedImage } from '../common/OptimizedImage';
 
 export interface QuickViewModalProps {
   product: CapacitorVariant | null;
@@ -176,41 +177,37 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({
 
                 {/* View 1: FRONT ELEVATION */}
                 {activeAngle === 'front' && (
-                  (currentProduct.primaryImage || currentProduct.image) && !imgError ? (
-                    <div className="relative z-10 w-full h-full flex flex-col items-center justify-center animate-in fade-in duration-200 p-2">
-                      <img
-                        src={currentProduct.primaryImage || currentProduct.image}
-                        alt={`${currentProduct.productName} - Front Elevation`}
-                        onClick={() => setIsFullScreenViewerOpen(true)}
-                        loading="lazy"
-                        decoding="async"
-                        className="max-h-[190px] sm:max-h-[220px] w-auto max-w-full object-contain rounded-lg shadow-xl cursor-pointer hover:scale-103 transition-transform"
-                        referrerPolicy="no-referrer"
-                        onError={() => setImgError(true)}
-                      />
-                      <span className="text-[10px] font-mono text-[#35C6E8] mt-2 tracking-wider">FRONT ELEVATION SPECIMEN (CLICK TO EXPAND)</span>
-                    </div>
-                  ) : (
-                    <div className="relative z-10 flex flex-col items-center animate-in fade-in duration-200">
-                      <div className="flex gap-2 -mb-1 z-20">
-                        <div className="w-2.5 h-4 bg-[#CBD5E1] rounded-t-xs shadow-xs"></div>
-                        <div className="w-2.5 h-4 bg-[#CBD5E1] rounded-t-xs shadow-xs"></div>
-                      </div>
-                      <div className="w-22 sm:w-24 h-34 sm:h-38 rounded-t-md rounded-b-xl bg-gradient-to-r from-[#071426] via-[#173A5E] to-[#071426] border-2 border-[#35C6E8]/60 shadow-2xl flex flex-col items-center justify-between py-3.5 sm:py-4 text-white px-2">
-                        <span className="text-[10px] font-bold tracking-widest text-[#A8B4C2] font-mono">NEUTRACAP</span>
-                        <div className="text-center font-mono">
-                          <div className="text-xs sm:text-sm font-bold text-white">{currentProduct.capacitanceDisplay}</div>
-                          <div className="text-[11px] sm:text-xs text-[#35C6E8] font-bold mt-0.5">{currentProduct.voltageDisplay}</div>
-                          <div className="text-[7.5px] text-[#A8B4C2] mt-1 uppercase">{currentProduct.dutyCycle}</div>
+                  <div className="relative z-10 w-full h-full flex flex-col items-center justify-center animate-in fade-in duration-200 p-2">
+                    <OptimizedImage
+                      src={currentProduct.primaryImage || currentProduct.image}
+                      alt={`${currentProduct.productName} - Front Elevation`}
+                      priority={true}
+                      onClick={() => setIsFullScreenViewerOpen(true)}
+                      className="max-h-[190px] sm:max-h-[220px] w-auto max-w-full object-contain rounded-lg shadow-xl cursor-pointer hover:scale-103 transition-transform"
+                      fallback={
+                        <div className="relative z-10 flex flex-col items-center animate-in fade-in duration-200">
+                          <div className="flex gap-2 -mb-1 z-20">
+                            <div className="w-2.5 h-4 bg-[#CBD5E1] rounded-t-xs shadow-xs"></div>
+                            <div className="w-2.5 h-4 bg-[#CBD5E1] rounded-t-xs shadow-xs"></div>
+                          </div>
+                          <div className="w-22 sm:w-24 h-34 sm:h-38 rounded-t-md rounded-b-xl bg-gradient-to-r from-[#071426] via-[#173A5E] to-[#071426] border-2 border-[#35C6E8]/60 shadow-2xl flex flex-col items-center justify-between py-3.5 sm:py-4 text-white px-2">
+                            <span className="text-[10px] font-bold tracking-widest text-[#A8B4C2] font-mono">NEUTRACAP</span>
+                            <div className="text-center font-mono">
+                              <div className="text-xs sm:text-sm font-bold text-white">{currentProduct.capacitanceDisplay}</div>
+                              <div className="text-[11px] sm:text-xs text-[#35C6E8] font-bold mt-0.5">{currentProduct.voltageDisplay}</div>
+                              <div className="text-[7.5px] text-[#A8B4C2] mt-1 uppercase">{currentProduct.dutyCycle}</div>
+                            </div>
+                            <div className="w-full flex justify-between px-1 text-[7px] text-[#16A34A] font-mono border-t border-[#173A5E] pt-1">
+                              <span>100% TESTED</span>
+                              <span>{currentProduct.tolerance}</span>
+                            </div>
+                          </div>
+                          <span className="text-[10px] font-mono text-[#A8B4C2] mt-2 tracking-wider">FRONT ELEVATION VIEW</span>
                         </div>
-                        <div className="w-full flex justify-between px-1 text-[7px] text-[#16A34A] font-mono border-t border-[#173A5E] pt-1">
-                          <span>100% TESTED</span>
-                          <span>{currentProduct.tolerance}</span>
-                        </div>
-                      </div>
-                      <span className="text-[10px] font-mono text-[#A8B4C2] mt-2 tracking-wider">FRONT ELEVATION VIEW</span>
-                    </div>
-                  )
+                      }
+                    />
+                    <span className="text-[10px] font-mono text-[#35C6E8] mt-2 tracking-wider">FRONT ELEVATION SPECIMEN (CLICK TO EXPAND)</span>
+                  </div>
                 )}
 
                 {/* View 2: TERMINAL / LEAD VIEW */}

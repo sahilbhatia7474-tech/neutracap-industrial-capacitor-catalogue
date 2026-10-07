@@ -351,63 +351,99 @@ export const FounderVault: React.FC<FounderVaultProps> = ({
     return log.status === logFilter;
   });
 
-  // Locked Gate Screen
+  // Locked Gate Screen — Ultra Modern 3D Cyber-Vault Security Gate
   if (!isAuthenticated) {
     return (
       <div 
         id="founder-vault-auth-gate"
-        className="fixed inset-0 z-50 bg-[#080D1A] text-slate-100 flex items-center justify-center p-4 animate-in fade-in duration-200"
+        className="fixed inset-0 z-50 bg-[#02050E] text-slate-100 flex items-center justify-center p-4 select-none overflow-hidden animate-in fade-in duration-300"
       >
-        <div className="w-full max-w-md bg-[#0F172A] rounded-2xl border border-[#1E293B] p-6 sm:p-8 shadow-2xl space-y-6">
-          <div className="text-center space-y-2">
-            <div className="w-12 h-12 rounded-xl bg-[#0066FF]/20 text-[#0066FF] border border-[#0066FF]/40 flex items-center justify-center mx-auto">
-              <KeyRound className="w-6 h-6" />
+        {/* Rich Industrial Background Grid & Multi-Stage Lighting */}
+        <div className="absolute inset-0 bg-luxury-grid opacity-35 pointer-events-none"></div>
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[450px] bg-[#35C6E8]/12 rounded-full blur-3xl pointer-events-none"></div>
+        <div className="absolute bottom-1/4 right-1/3 w-[500px] h-[400px] bg-[#F43F5E]/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        {/* 3D Hardware Vault Chassis Card */}
+        <div className="relative w-full max-w-md bg-gradient-to-b from-[#0C192E] via-[#071324] to-[#030914] rounded-3xl border border-[#35C6E8]/40 p-7 sm:p-9 shadow-[0_30px_90px_rgba(0,0,0,0.95),0_0_50px_rgba(53,198,232,0.2),inset_0_1px_2px_rgba(255,255,255,0.3)] space-y-7 backdrop-blur-2xl overflow-hidden group">
+          {/* Top 3D Specular Laser Hairline */}
+          <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#35C6E8] to-transparent shadow-[0_0_15px_#35C6E8] pointer-events-none"></div>
+
+          {/* Corner Aerospace Status Tag */}
+          <div className="absolute top-3.5 right-4 text-[9px] font-mono text-slate-400 tracking-widest uppercase">
+            [SCADA · ENCRYPTED 4096-BIT]
+          </div>
+
+          {/* CSS Selector 1 — 3D Interactive Security Header Lockup */}
+          <div className="text-center space-y-3 pt-2">
+            {/* 3D Interactive Floating Key Medallion */}
+            <div className="relative w-18 h-18 sm:w-20 sm:h-20 rounded-3xl bg-gradient-to-b from-[#173A5E] via-[#0D2440] to-[#040E1C] border-2 border-[#35C6E8]/70 shadow-[0_0_35px_rgba(53,198,232,0.5),inset_0_2px_4px_rgba(255,255,255,0.4)] flex items-center justify-center mx-auto mb-4 group-hover:scale-105 transition-transform duration-300">
+              <KeyRound className="w-8 h-8 text-[#35C6E8] filter drop-shadow-[0_0_10px_#35C6E8]" />
+              <span className="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-[#35C6E8] shadow-[0_0_8px_#35C6E8] animate-ping"></span>
+              <span className="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-[#35C6E8]"></span>
             </div>
-            <h2 className="text-xl font-bold font-display text-white">
-              NEUTRACAP FOUNDER VAULT 2.0
-            </h2>
-            <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded bg-rose-500/20 text-rose-300 border border-rose-500/30 text-[10px] font-mono">
-              <ShieldAlert className="w-3 h-3" />
-              <span>CONFIDENTIAL · INTERNAL ONLY · NOINDEX</span>
+
+            <div className="space-y-1">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-rose-950/70 text-rose-300 border border-rose-500/50 text-[10px] font-mono font-bold tracking-[0.16em] uppercase shadow-[0_0_12px_rgba(244,63,94,0.35)] mb-1">
+                <ShieldAlert className="w-3.5 h-3.5 text-rose-400 animate-pulse" />
+                <span>CONFIDENTIAL · FOUNDER INTERNAL DESK</span>
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-black font-editorial tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-[#35C6E8] drop-shadow-[0_4px_20px_rgba(53,198,232,0.35)]">
+                Founder Vault 2.0
+              </h2>
             </div>
-            <p className="text-xs text-slate-400">
-              Enter Founder Authorization Key to access operational intelligence and commercial controls.
+
+            <p className="text-xs text-slate-300 font-sans max-w-xs mx-auto leading-relaxed">
+              Enter Founder Authorization Passkey to unlock live factory pricing, mutation history, and SCADA telemetry.
             </p>
           </div>
 
-          <form onSubmit={handleUnlock} className="space-y-4">
-            <div>
+          {/* Interactive 3D Form Cavity */}
+          <form onSubmit={handleUnlock} className="space-y-5">
+            <div className="relative">
+              <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+                <Lock className="w-4 h-4 text-[#35C6E8]" />
+              </div>
               <input
                 type="password"
                 placeholder="Enter Authorization Passkey..."
                 value={passkeyInput}
                 onChange={(e) => setPasskeyInput(e.target.value)}
-                className="w-full h-11 px-3.5 rounded-lg bg-[#080D1A] border border-[#334155] text-sm text-white focus:outline-none focus:ring-2 focus:ring-[#0066FF] font-mono"
+                className="w-full h-12 pl-11 pr-4 rounded-xl bg-gradient-to-b from-[#040C18] to-[#01060E] border border-[#173A5E] hover:border-[#35C6E8]/70 focus:border-[#35C6E8] focus:ring-2 focus:ring-[#35C6E8]/30 text-sm text-white font-mono placeholder:text-slate-500 shadow-[inset_0_2px_6px_rgba(0,0,0,0.85)] transition-all"
               />
               {authError && (
-                <div className="text-xs text-rose-400 mt-1.5 font-mono">{authError}</div>
+                <div className="text-xs text-rose-400 mt-2 font-mono flex items-center gap-1.5">
+                  <AlertTriangle className="w-3.5 h-3.5" />
+                  <span>{authError}</span>
+                </div>
               )}
             </div>
 
-            <div className="space-y-2">
+            <div className="space-y-3 pt-1">
+              {/* Primary 3D Action */}
               <button
                 type="submit"
-                className="w-full py-2.5 rounded-lg bg-[#0066FF] hover:bg-[#0052CC] text-white text-xs font-bold font-mono uppercase tracking-wider transition-colors shadow-xs"
+                id="vault-authenticate-submit-btn"
+                className="w-full py-3.5 rounded-xl bg-gradient-to-r from-[#173A5E] via-[#0E7490] to-[#173A5E] hover:from-[#0E7490] hover:to-[#35C6E8] text-white text-xs font-mono font-black uppercase tracking-[0.16em] flex items-center justify-center gap-2.5 border border-[#35C6E8]/70 shadow-[0_8px_30px_rgba(14,116,144,0.45),inset_0_1px_2px_rgba(255,255,255,0.4)] hover:shadow-[0_0_35px_rgba(53,198,232,0.65)] cursor-pointer active:scale-98 transition-all"
               >
-                Authenticate &amp; Enter Command Centre
+                <Unlock className="w-4 h-4 text-[#35C6E8] filter drop-shadow-[0_0_6px_#35C6E8]" />
+                <span>Authenticate &amp; Enter Command Centre</span>
               </button>
+
+              {/* Secondary Close Button */}
               <button
                 type="button"
                 onClick={onClose}
-                className="w-full py-2 rounded-lg bg-[#1E293B] hover:bg-[#334155] text-slate-300 text-xs font-mono transition-colors"
+                className="w-full py-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white border border-white/10 hover:border-white/20 text-xs font-mono font-semibold tracking-wider transition-all cursor-pointer active:scale-98"
               >
                 Return to Public Website
               </button>
             </div>
           </form>
 
-          <div className="text-[11px] text-slate-500 font-mono text-center border-t border-[#1E293B] pt-4">
-            Security Notice: Multi-factor authenticated access is logged and monitored.
+          {/* Bottom Cryptographic Notice */}
+          <div className="text-[10px] text-slate-400 font-mono tracking-wider text-center border-t border-white/10 pt-4 flex items-center justify-center gap-2">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span>Security Notice: Multi-factor authenticated sessions are monitored.</span>
           </div>
         </div>
       </div>
@@ -419,28 +455,32 @@ export const FounderVault: React.FC<FounderVaultProps> = ({
       id="founder-vault-root"
       className="fixed inset-0 z-50 bg-[#080D1A] text-slate-100 flex flex-col overflow-hidden animate-in fade-in duration-200 font-sans"
     >
-      {/* Top SCADA Command Bar */}
-      <div className="bg-[#0F172A] border-b border-[#1E293B] px-4 sm:px-6 py-3 flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          <div className="w-8 h-8 rounded-lg bg-[#0066FF] text-white flex items-center justify-center font-mono font-bold text-xs shadow-xs">
-            <Terminal className="w-4 h-4" />
+      {/* Top SCADA Command Bar — Ultra-Modern 3D Multi-Layer Obsidian Substrate */}
+      <div className="relative z-20 bg-gradient-to-r from-[#030914] via-[#07172B] to-[#040C1A] border-b border-[#35C6E8]/35 px-4 sm:px-6 py-3.5 flex items-center justify-between shadow-[0_12px_40px_rgba(0,0,0,0.9),0_2px_12px_rgba(53,198,232,0.15),inset_0_1px_2px_rgba(255,255,255,0.18)] select-none">
+        {/* Specular Top Laser Hairline */}
+        <div className="absolute top-0 left-0 right-0 h-[1.5px] bg-gradient-to-r from-transparent via-[#35C6E8]/70 to-transparent shadow-[0_0_10px_#35C6E8] pointer-events-none"></div>
+
+        <div className="flex items-center gap-3.5">
+          <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#173A5E] via-[#0C2442] to-[#051426] border border-[#35C6E8]/60 text-[#35C6E8] flex items-center justify-center font-mono font-bold text-xs shadow-[0_0_20px_rgba(53,198,232,0.45),inset_0_1px_2px_rgba(255,255,255,0.35)] hover:scale-105 active:scale-95 transition-all cursor-pointer">
+            <Terminal className="w-4 h-4 filter drop-shadow-[0_0_4px_#35C6E8]" />
           </div>
           <div>
-            <div className="flex items-center gap-2">
-              <h2 className="text-sm sm:text-base font-bold font-display text-white">
+            <div className="flex items-center gap-2.5">
+              <h2 className="text-sm sm:text-base font-black font-editorial text-white tracking-tight drop-shadow-[0_2px_12px_rgba(53,198,232,0.35)]">
                 NEUTRACAP FOUNDER VAULT
               </h2>
-              <span className="hidden sm:inline-flex px-2 py-0.2 rounded bg-[#0066FF]/20 text-[#0066FF] border border-[#0066FF]/40 text-[10px] font-mono font-bold">
+              <span className="hidden sm:inline-flex px-2.5 py-0.5 rounded-full bg-gradient-to-r from-[#173A5E]/80 to-[#0B223D]/90 text-[#35C6E8] border border-[#35C6E8]/50 text-[10px] font-mono font-bold tracking-wider shadow-[0_0_12px_rgba(53,198,232,0.25),inset_0_1px_1px_rgba(255,255,255,0.2)]">
                 PRIVATE CONTROL CENTRE
               </span>
-              <span className="inline-flex px-2 py-0.2 rounded bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 text-[10px] font-mono font-bold">
+              <span className="inline-flex px-2.5 py-0.5 rounded-full bg-gradient-to-r from-emerald-950/80 via-[#06291B] to-emerald-950/80 text-emerald-300 border border-emerald-400/60 text-[10px] font-mono font-bold tracking-wider shadow-[0_0_15px_rgba(16,185,129,0.35),inset_0_1px_1px_rgba(255,255,255,0.2)] flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_6px_#34D399]"></span>
                 AUTHENTICATED
               </span>
             </div>
-            <div className="text-[11px] text-slate-400 font-mono flex items-center gap-2">
-              <span>Authority: <strong className="text-emerald-400">{currentRole}</strong></span>
-              <span>·</span>
-              <span>Baseline: <strong className="text-white">{CATALOGUE_SUMMARY.total} Variants</strong></span>
+            <div className="text-[11px] text-slate-300 font-mono flex items-center gap-2 mt-0.5">
+              <span>Authority: <strong className="text-emerald-400 font-bold">{currentRole}</strong></span>
+              <span className="text-slate-500">·</span>
+              <span>Baseline: <strong className="text-white font-bold">{CATALOGUE_SUMMARY.total} Variants</strong></span>
             </div>
           </div>
         </div>
@@ -454,24 +494,24 @@ export const FounderVault: React.FC<FounderVaultProps> = ({
               id="founder-quick-undo-btn"
               onClick={() => setUndoTargetLog(latestReversibleLog)}
               title="Quick Undo Latest Confirmed Change"
-              className="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 border border-amber-500/40 text-xs font-mono font-bold transition-all shadow-xs"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-gradient-to-r from-amber-950/80 via-[#2E1805] to-amber-950/80 hover:from-[#3D2007] hover:to-amber-900/80 text-amber-300 border border-amber-500/50 hover:border-amber-400 text-xs font-mono font-bold transition-all shadow-[0_4px_16px_rgba(245,158,11,0.25),inset_0_1px_2px_rgba(255,255,255,0.2)] hover:shadow-[0_0_22px_rgba(245,158,11,0.45)] active:scale-95 cursor-pointer"
             >
-              <RotateCcw className="w-3.5 h-3.5" />
+              <RotateCcw className="w-3.5 h-3.5 filter drop-shadow-[0_0_4px_#F59E0B]" />
               <span className="hidden sm:inline">Undo Last Change</span>
             </button>
           )}
 
           {/* Role Switcher */}
-          <div className="hidden lg:flex items-center gap-1 p-1 rounded-lg bg-[#080D1A] border border-[#1E293B] text-xs font-mono">
-            <span className="text-[10px] text-slate-500 px-1">ROLE:</span>
+          <div className="hidden lg:flex items-center gap-1 p-1 rounded-xl bg-[#030914] border border-[#173A5E]/80 shadow-[inset_0_2px_6px_rgba(0,0,0,0.85)] text-xs font-mono">
+            <span className="text-[10px] text-slate-400 px-1.5 font-bold">ROLE:</span>
             {(['FOUNDER', 'ADMIN', 'PUBLIC'] as FounderRole[]).map((r) => (
               <button
                 key={r}
                 onClick={() => setCurrentRole(r)}
-                className={`px-2 py-0.5 rounded text-[10px] font-bold transition-colors ${
+                className={`px-2.5 py-0.5 rounded-lg text-[10px] font-bold transition-all ${
                   currentRole === r 
-                    ? 'bg-[#0066FF] text-white' 
-                    : 'text-slate-400 hover:text-white'
+                    ? 'bg-gradient-to-r from-[#173A5E] to-[#0E7490] text-white border border-[#35C6E8]/60 shadow-[0_0_12px_rgba(53,198,232,0.4),inset_0_1px_1px_rgba(255,255,255,0.3)]' 
+                    : 'text-slate-400 hover:text-white hover:bg-white/5'
                 }`}
               >
                 {r}
@@ -482,25 +522,26 @@ export const FounderVault: React.FC<FounderVaultProps> = ({
           <button
             onClick={() => setIsAuthenticated(false)}
             title="Lock Vault"
-            className="p-2 rounded-lg bg-[#1E293B] hover:bg-[#334155] text-slate-300 transition-colors"
+            className="p-2.5 rounded-xl bg-gradient-to-b from-[#0F233B] to-[#081525] border border-[#1E3B5C] hover:border-[#35C6E8]/70 text-slate-300 hover:text-white shadow-[0_4px_12px_rgba(0,0,0,0.5),inset_0_1px_1px_rgba(255,255,255,0.15)] hover:shadow-[0_0_15px_rgba(53,198,232,0.3)] active:scale-95 transition-all cursor-pointer"
           >
-            <Lock className="w-3.5 h-3.5" />
+            <Lock className="w-3.5 h-3.5 text-[#35C6E8]" />
           </button>
 
           <button
             id="close-founder-vault-btn"
             onClick={onClose}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#1E293B] hover:bg-[#334155] text-slate-200 hover:text-white border border-[#334155] text-xs font-mono transition-colors"
+            className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-gradient-to-r from-[#173A5E] to-[#0B1E38] hover:from-[#1E4B7A] hover:to-[#122F55] text-white border border-[#35C6E8]/60 hover:border-[#35C6E8] shadow-[0_4px_15px_rgba(0,0,0,0.6),0_0_15px_rgba(53,198,232,0.25),inset_0_1px_2px_rgba(255,255,255,0.25)] hover:shadow-[0_0_25px_rgba(53,198,232,0.45)] text-xs font-mono font-bold active:scale-95 transition-all cursor-pointer"
           >
-            <ArrowLeft className="w-3.5 h-3.5" />
+            <ArrowLeft className="w-3.5 h-3.5 text-[#35C6E8]" />
             <span>Public Site</span>
           </button>
         </div>
       </div>
 
       {/* Main Content Stage: Sidebar Navigation + Operational Desks */}
-      {/* Mobile Tab Selector Bar */}
-      <div className="md:hidden bg-[#0F172A] border-b border-[#1E293B] p-2 flex items-center gap-1.5 overflow-x-auto no-scrollbar shrink-0">
+      {/* Mobile Tab Selector Bar — 3D Tactile Rail */}
+      <div className="md:hidden bg-gradient-to-r from-[#030814] via-[#061426] to-[#030814] border-b border-[#35C6E8]/30 p-2.5 flex items-center gap-2 overflow-x-auto no-scrollbar shrink-0 shadow-[0_10px_30px_rgba(0,0,0,0.85),inset_0_1px_1px_rgba(255,255,255,0.1)] relative">
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#35C6E8]/40 to-transparent pointer-events-none"></div>
         {[
           { id: 'overview', label: 'Overview', icon: Database },
           { id: 'product_mgmt', label: 'Products', icon: Box },
@@ -519,10 +560,10 @@ export const FounderVault: React.FC<FounderVaultProps> = ({
             <button
               key={item.id}
               onClick={() => setActiveTab(item.id as any)}
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-medium whitespace-nowrap transition-colors ${
+              className={`flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-mono whitespace-nowrap transition-all cursor-pointer active:scale-95 ${
                 isActive
-                  ? 'bg-[#0066FF] text-white font-bold'
-                  : 'bg-[#080D1A] text-slate-400 hover:text-white border border-[#1E293B]'
+                  ? 'bg-gradient-to-b from-[#173A5E] via-[#0E2847] to-[#061528] border border-[#35C6E8] text-[#35C6E8] shadow-[0_0_18px_rgba(53,198,232,0.45),inset_0_1px_2px_rgba(255,255,255,0.35)] scale-[1.03] font-bold'
+                  : 'bg-gradient-to-b from-[#071322] to-[#040C16] text-slate-300 hover:text-white border border-[#173352]/70 hover:border-[#35C6E8]/50 shadow-[0_2px_8px_rgba(0,0,0,0.5),inset_0_1px_1px_rgba(255,255,255,0.08)] font-medium'
               }`}
             >
               <Icon className="w-3.5 h-3.5" />
@@ -584,12 +625,18 @@ export const FounderVault: React.FC<FounderVaultProps> = ({
           })}
         </div>
 
-        {/* Center Operational Stage */}
+        {/* Center Operational Stage — Iconic 3D Depth Substrate with Rich Atmospheric Lighting */}
         <div 
           ref={scrollContainerRef}
           onScroll={handleScroll}
-          className="flex-1 overflow-y-auto p-5 sm:p-7 bg-[#080D1A] space-y-6 relative"
+          className="flex-1 overflow-y-auto p-5 sm:p-8 md:p-9 bg-gradient-to-b from-[#02050E] via-[#051122] to-[#020612] space-y-7 relative shadow-[inset_0_6px_25px_rgba(0,0,0,0.95)] select-text"
         >
+          {/* Spatial Micro-Grid Texture & Volumetric Lighting Background */}
+          <div className="absolute inset-0 bg-luxury-grid opacity-35 pointer-events-none"></div>
+          <div className="absolute inset-0 bg-circuit-subtle opacity-25 pointer-events-none"></div>
+          <div className="absolute -top-32 right-1/4 w-[600px] h-[450px] bg-[#35C6E8]/10 rounded-full blur-3xl pointer-events-none"></div>
+          <div className="absolute bottom-10 left-10 w-[500px] h-[400px] bg-[#10B981]/7 rounded-full blur-3xl pointer-events-none"></div>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-[#173A5E]/15 rounded-full blur-3xl pointer-events-none"></div>
           
           {/* TAB 1: COMMAND OVERVIEW */}
           {activeTab === 'overview' && (

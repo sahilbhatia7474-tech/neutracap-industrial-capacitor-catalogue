@@ -28,18 +28,25 @@ import { WhyNeutraCapSection } from './components/home/WhyNeutraCapSection';
 import { ProductCatalogueCarousels } from './components/home/ProductCatalogueCarousels';
 import { FindYourCapacitorSection } from './components/home/FindYourCapacitorSection';
 import { CustomRequirementSection } from './components/home/CustomRequirementSection';
-import { GlobalSearchModal } from './components/common/GlobalSearchModal';
-import { QuickViewModal } from './components/modals/QuickViewModal';
-import { EnquiryModal } from './components/modals/EnquiryModal';
-import { EnquiryCartDrawer } from './components/modals/EnquiryCartDrawer';
-import { VideoModal } from './components/modals/VideoModal';
-import { FounderVault, ExtendedAuditLog } from './components/founder/FounderVault';
-import { NeutraCapAssist } from './components/ai/NeutraCapAssist';
 import { FloatingWhatsAppButton } from './components/common/FloatingWhatsAppButton';
 import { PublicScrollControl } from './components/common/PublicScrollControl';
 import { PWAInstallBanner } from './components/common/PWAInstallBanner';
 import { ViewportRevealSection } from './components/common/ViewportRevealSection';
 import { SiteMediaPlacement } from './services/siteMediaRegistry';
+
+import type { ExtendedAuditLog } from './components/founder/FounderVault';
+
+// Performance: Code-split off-screen modals and secondary legal charters
+const GlobalSearchModal = React.lazy(() => import('./components/common/GlobalSearchModal').then(m => ({ default: m.GlobalSearchModal })));
+const QuickViewModal = React.lazy(() => import('./components/modals/QuickViewModal').then(m => ({ default: m.QuickViewModal })));
+const EnquiryModal = React.lazy(() => import('./components/modals/EnquiryModal').then(m => ({ default: m.EnquiryModal })));
+const EnquiryCartDrawer = React.lazy(() => import('./components/modals/EnquiryCartDrawer').then(m => ({ default: m.EnquiryCartDrawer })));
+const VideoModal = React.lazy(() => import('./components/modals/VideoModal').then(m => ({ default: m.VideoModal })));
+const FounderVault = React.lazy(() => import('./components/founder/FounderVault').then(m => ({ default: m.FounderVault })));
+const NeutraCapAssist = React.lazy(() => import('./components/ai/NeutraCapAssist').then(m => ({ default: m.NeutraCapAssist })));
+const TermsAndConditionsPage = React.lazy(() => import('./components/legal/TermsAndConditionsPage').then(m => ({ default: m.TermsAndConditionsPage })));
+const PrivacyPolicyPage = React.lazy(() => import('./components/legal/PrivacyPolicyPage').then(m => ({ default: m.PrivacyPolicyPage })));
+const RefundCancellationPage = React.lazy(() => import('./components/legal/RefundCancellationPage').then(m => ({ default: m.RefundCancellationPage })));
 
 import { 
   PRODUCT_FAMILIES, 
@@ -61,6 +68,27 @@ export default function App() {
   // Navigation & State Management
   const [activeSection, setActiveSection] = useState<string>('home');
   const [selectedCategory, setSelectedCategory] = useState<ProductFamilyId | 'all'>('all');
+
+  // Standalone Full-Page Legal Routes
+  const [currentPath, setCurrentPath] = useState<string>(() => {
+    return typeof window !== 'undefined' ? window.location.pathname || '/' : '/';
+  });
+
+  useEffect(() => {
+    const handlePopState = () => {
+      setCurrentPath(window.location.pathname || '/');
+    };
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
+
+  const navigateTo = (path: string) => {
+    if (typeof window !== 'undefined' && window.location.pathname !== path) {
+      window.history.pushState({}, '', path);
+    }
+    setCurrentPath(path);
+    window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
+  };
   
   // Data-Driven Products & Extended Audit Logs
   const [products, setProducts] = useState<CapacitorVariant[]>(() =>
@@ -143,6 +171,31 @@ export default function App() {
 
   // Smooth scroll & navigation helper
   const handleNavigate = (sectionId: string, familyId?: ProductFamilyId) => {
+    if (currentPath !== '/') {
+      navigateTo('/');
+      setTimeout(() => {
+        setActiveSection(sectionId);
+        if (familyId) {
+          setSelectedCategory(familyId);
+        }
+        if (sectionId === 'home') {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+          return;
+        }
+        const targetElement = document.getElementById(
+          sectionId === 'products' ? 'product-catalogue-carousels' :
+          sectionId === 'finder' ? 'finder' :
+          sectionId === 'custom' ? 'custom' :
+          sectionId === 'about' ? 'why-neutracap' :
+          sectionId === 'contact' ? 'main-site-footer' : sectionId
+        );
+        if (targetElement) {
+          targetElement.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 50);
+      return;
+    }
+
     setActiveSection(sectionId);
     if (familyId) {
       setSelectedCategory(familyId);
@@ -250,6 +303,40 @@ export default function App() {
 
   const totalCartItemCount = cartItems.reduce((acc, item) => acc + item.quantity, 0);
 
+  // Dedicated Full-Page Legal Document Standalone Routes
+  if (currentPath === '/terms-and-conditions') {
+    return (
+      <React.Suspense fallback={<div className="min-h-screen bg-[#020612] flex items-center justify-center text-cyan-400 font-mono text-xs">LOADING TERMS &amp; CONDITIONS...</div>}>
+        <TermsAndConditionsPage
+          onBack={() => navigateTo('/')}
+          onNavigateLegal={(path) => navigateTo(path)}
+        />
+      </React.Suspense>
+    );
+  }
+
+  if (currentPath === '/privacy-policy') {
+    return (
+      <React.Suspense fallback={<div className="min-h-screen bg-[#020612] flex items-center justify-center text-cyan-400 font-mono text-xs">LOADING PRIVACY POLICY...</div>}>
+        <PrivacyPolicyPage
+          onBack={() => navigateTo('/')}
+          onNavigateLegal={(path) => navigateTo(path)}
+        />
+      </React.Suspense>
+    );
+  }
+
+  if (currentPath === '/refund-and-cancellation') {
+    return (
+      <React.Suspense fallback={<div className="min-h-screen bg-[#020612] flex items-center justify-center text-cyan-400 font-mono text-xs">LOADING REFUND POLICY...</div>}>
+        <RefundCancellationPage
+          onBack={() => navigateTo('/')}
+          onNavigateLegal={(path) => navigateTo(path)}
+        />
+      </React.Suspense>
+    );
+  }
+
   return (
     <div className="min-h-screen flex flex-col bg-[#071426] text-[#172033] overflow-x-hidden font-sans">
       
@@ -304,7 +391,7 @@ export default function App() {
         </ViewportRevealSection>
 
         {/* Section 4: Horizontal Product System (4 Dedicated Rails) */}
-        <ViewportRevealSection id="reveal-catalogue" delayMs={100}>
+        <ViewportRevealSection id="reveal-catalogue" className="perf-content-visibility" delayMs={0}>
           <ProductCatalogueCarousels
             products={products}
             selectedCategory={selectedCategory}
@@ -318,7 +405,7 @@ export default function App() {
         </ViewportRevealSection>
 
         {/* Section 5: Find Your Capacitor (Intelligent Specification Selector) */}
-        <ViewportRevealSection id="reveal-finder" delayMs={100}>
+        <ViewportRevealSection id="reveal-finder" className="perf-content-visibility" delayMs={0}>
           <FindYourCapacitorSection
             products={products}
             onQuickView={(product) => setQuickViewProduct(product)}
@@ -330,7 +417,7 @@ export default function App() {
         </ViewportRevealSection>
 
         {/* Section 6: Custom Requirement Conversion Section */}
-        <ViewportRevealSection id="reveal-custom" delayMs={100}>
+        <ViewportRevealSection id="reveal-custom" className="perf-content-visibility" delayMs={0}>
           <CustomRequirementSection
             onSubmitSuccess={(data) => {
               handleAddAuditLog({
@@ -346,10 +433,11 @@ export default function App() {
 
       </main>
 
-      {/* Section 7: Visually Calm 4-Column Footer */}
+      {/* Section 7: Visually Calm 4-Column Footer with Legal Centre Links */}
       <Footer
         onNavigate={handleNavigate}
         onOpenFounderVault={() => setIsFounderVaultOpen(true)}
+        onNavigateLegal={navigateTo}
       />
 
       {/* Section 8: Mobile Sticky Bottom Navigation */}

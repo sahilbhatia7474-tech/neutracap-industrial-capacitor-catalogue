@@ -37,7 +37,7 @@
     overflow-x: hidden;
     box-sizing: border-box;
     -webkit-text-size-adjust: 100%;
-    scroll-behavior: smooth;
+    scroll-behavior: auto;
     background-color: var(--obsidian-black);
   }
 
@@ -87,6 +87,16 @@
     text-rendering: optimizeLegibility;
   }
 
+  #hero-headline {
+    line-height: 1.1 !important;
+    letter-spacing: -0.02em !important;
+  }
+
+  #main-site-header {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+  }
+
   .font-mono, .tech-mono {
     font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
     letter-spacing: -0.01em;
@@ -109,6 +119,22 @@
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #35C6E8;
+}
+
+/* High-Performance Utilities for Touch & Smooth Rail Scrolling */
+.no-scrollbar::-webkit-scrollbar {
+  display: none !important;
+}
+.no-scrollbar {
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Modern Content-Visibility Optimization for Instant Initial Paint */
+.perf-content-visibility {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 700px;
 }
 
 /* ==========================================================================
@@ -143,86 +169,82 @@
 }
 
 /* ==========================================================================
-   FROSTED GLASSMORPHISM & LUXURY CARDS
+   FROSTED GLASSMORPHISM & LUXURY CARDS (GPU OPTIMIZED)
    ========================================================================== */
 
 /* High-end obsidian glass card with specular hairline */
 .glass-panel-luxury {
-  background: rgba(11, 31, 54, 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: rgba(11, 31, 54, 0.92);
   border: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow: 
     0 10px 30px -10px rgba(0, 0, 0, 0.6),
     inset 0 1px 0 rgba(255, 255, 255, 0.12),
     inset 0 -1px 0 rgba(0, 0, 0, 0.4);
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1),
-              border-color 0.25s ease,
-              background-color 0.25s ease;
-  will-change: transform, box-shadow;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.2s ease,
+              background-color 0.2s ease;
 }
 
 @media (hover: hover) and (min-width: 768px) {
   .glass-panel-luxury:hover {
-    background: rgba(14, 38, 66, 0.95);
+    background: rgba(14, 38, 66, 0.96);
     border-color: rgba(53, 198, 232, 0.5);
     transform: translateY(-3px);
     box-shadow: 
       0 16px 40px -8px rgba(0, 0, 0, 0.7),
       0 0 25px rgba(53, 198, 232, 0.18),
       inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    will-change: transform;
   }
 }
 
-/* Converted product card (compatible with existing class names) */
+/* Converted product card (Fast 60-120fps GPU Rendering) */
 .card-tactile {
-  background: rgba(13, 20, 44, 0.72);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background: linear-gradient(180deg, #0C1E36 0%, #071629 55%, #030B17 100%);
   border: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow: 
     0 8px 24px -6px rgba(0, 0, 0, 0.5),
     inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1),
-              border-color 0.25s ease,
-              background-color 0.25s ease;
-  will-change: transform, box-shadow;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.2s ease,
+              background-color 0.2s ease;
 }
 
 @media (hover: hover) and (min-width: 768px) {
   .card-tactile:hover {
-    background: rgba(18, 28, 60, 0.85);
+    background: linear-gradient(180deg, #102644 0%, #091C33 55%, #040E1E 100%);
     border-color: rgba(53, 198, 232, 0.5);
     transform: translateY(-3px);
     box-shadow: 
       0 20px 45px -10px rgba(0, 0, 0, 0.7),
       0 0 20px rgba(53, 198, 232, 0.12),
       inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    will-change: transform;
   }
 }
 
 /* Gateway tactile card */
 .card-gateway-depth {
-  background: rgba(13, 20, 44, 0.7);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
+  background: linear-gradient(180deg, #0C1E36 0%, #071629 60%, #030B17 100%);
   border: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow: 
     0 12px 36px -10px rgba(0, 0, 0, 0.6),
     inset 0 1px 0 rgba(255, 255, 255, 0.12);
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @media (hover: hover) and (min-width: 768px) {
   .card-gateway-depth:hover {
-    background: rgba(18, 27, 58, 0.85);
+    background: linear-gradient(180deg, #122848 0%, #0A1E38 60%, #040E1E 100%);
     transform: translateY(-3px);
     box-shadow: 
       0 24px 50px -12px rgba(0, 0, 0, 0.75),
       0 0 30px rgba(124, 58, 237, 0.18),
       inset 0 1px 0 rgba(255, 255, 255, 0.25);
+    will-change: transform;
   }
 }
 
@@ -390,27 +412,25 @@
 
 .section-reveal {
   opacity: 0;
-  transform: translateY(32px);
-  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: opacity, transform;
+  transform: translate3d(0, 18px, 0);
+  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .section-reveal.is-revealed {
   opacity: 1;
-  transform: translateY(0);
+  transform: translate3d(0, 0, 0);
 }
 
 /* Staggered Children for Editorial Visual Cadence */
 .section-reveal .stagger-item {
   opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: opacity, transform;
+  transform: translate3d(0, 14px, 0);
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .section-reveal.is-revealed .stagger-item {
   opacity: 1;
-  transform: translateY(0);
+  transform: translate3d(0, 0, 0);
 }
 
 .section-reveal.is-revealed .stagger-item-1 {

@@ -48,6 +48,8 @@ export const ProductFamilyStrip: React.FC<ProductFamilyStripProps> = ({
 
   const prefersReducedMotion = typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  const rafTiltRef = React.useRef<number | null>(null);
+
   const handleCardMouseMove = (
     e: React.MouseEvent<HTMLDivElement>,
     setTilt: React.Dispatch<React.SetStateAction<{ x: number; y: number; glareX: number; glareY: number; active: boolean }>>
@@ -62,14 +64,30 @@ export const ProductFamilyStrip: React.FC<ProductFamilyStripProps> = ({
     const glareX = (xPos / rect.width) * 100;
     const glareY = (yPos / rect.height) * 100;
 
-    setTilt({ x: rotateX, y: rotateY, glareX, glareY, active: true });
+    if (rafTiltRef.current !== null) return;
+    rafTiltRef.current = requestAnimationFrame(() => {
+      setTilt({ x: rotateX, y: rotateY, glareX, glareY, active: true });
+      rafTiltRef.current = null;
+    });
   };
 
   const handleCardMouseLeave = (
     setTilt: React.Dispatch<React.SetStateAction<{ x: number; y: number; glareX: number; glareY: number; active: boolean }>>
   ) => {
+    if (rafTiltRef.current !== null) {
+      cancelAnimationFrame(rafTiltRef.current);
+      rafTiltRef.current = null;
+    }
     setTilt({ x: 0, y: 0, glareX: 50, glareY: 50, active: false });
   };
+
+  React.useEffect(() => {
+    return () => {
+      if (rafTiltRef.current !== null) {
+        cancelAnimationFrame(rafTiltRef.current);
+      }
+    };
+  }, []);
 
   const activeFeatureData = DC_FEATURES.find((f) => f.id === activeDcFeature) || DC_FEATURES[0];
 

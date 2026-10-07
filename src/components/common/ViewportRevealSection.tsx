@@ -25,15 +25,15 @@ export const ViewportRevealSection: React.FC<ViewportRevealSectionProps> = ({
   id,
   className = '',
   delayMs,
-  threshold = 0.08,
-  rootMargin = '0px 0px -50px 0px',
+  threshold = 0.01,
+  rootMargin = '150px 0px 80px 0px',
   staggerIndex = 0,
 }) => {
   const [isRevealed, setIsRevealed] = useState(false);
   const elementRef = useRef<HTMLDivElement>(null);
 
-  // Calculate effective delay: explicit delayMs or staggered by index
-  const computedDelayMs = typeof delayMs === 'number' ? delayMs : Math.min(staggerIndex * 60, 300);
+  // Calculate effective delay: explicit delayMs or staggered by index (minimal cap for instant response)
+  const computedDelayMs = typeof delayMs === 'number' ? delayMs : Math.min(staggerIndex * 40, 150);
 
   useEffect(() => {
     // If user prefers reduced motion, reveal immediately with zero transition delay

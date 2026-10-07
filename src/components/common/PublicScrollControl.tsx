@@ -24,17 +24,24 @@ export const PublicScrollControl: React.FC<PublicScrollControlProps> = ({ isHidd
   const [hasScrollableContent, setHasScrollableContent] = useState<boolean>(false);
 
   useEffect(() => {
+    let ticking = false;
     const checkScroll = () => {
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      if (docHeight <= 100) {
-        setHasScrollableContent(false);
-        setIsNearBottom(false);
-        return;
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+          if (docHeight <= 100) {
+            setHasScrollableContent(false);
+            setIsNearBottom(false);
+          } else {
+            setHasScrollableContent(true);
+            const current = window.scrollY;
+            const ratio = current / docHeight;
+            setIsNearBottom(ratio >= 0.85);
+          }
+          ticking = false;
+        });
+        ticking = true;
       }
-      setHasScrollableContent(true);
-      const current = window.scrollY;
-      const ratio = current / docHeight;
-      setIsNearBottom(ratio >= 0.85);
     };
 
     window.addEventListener('scroll', checkScroll, { passive: true });

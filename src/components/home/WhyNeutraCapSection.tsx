@@ -82,6 +82,8 @@ export const WhyNeutraCapSection: React.FC<WhyNeutraCapSectionProps> = ({
 
   const prefersReducedMotion = typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  const rafWhyTiltRef = React.useRef<number | null>(null);
+
   const handleCardMouseMove = (
     e: React.MouseEvent<HTMLDivElement>,
     setTilt: React.Dispatch<React.SetStateAction<{ x: number; y: number; glareX: number; glareY: number; active: boolean }>>
@@ -99,14 +101,30 @@ export const WhyNeutraCapSection: React.FC<WhyNeutraCapSectionProps> = ({
     const glareX = (xPos / rect.width) * 100;
     const glareY = (yPos / rect.height) * 100;
 
-    setTilt({ x: rotateX, y: rotateY, glareX, glareY, active: true });
+    if (rafWhyTiltRef.current !== null) return;
+    rafWhyTiltRef.current = requestAnimationFrame(() => {
+      setTilt({ x: rotateX, y: rotateY, glareX, glareY, active: true });
+      rafWhyTiltRef.current = null;
+    });
   };
 
   const handleCardMouseLeave = (
     setTilt: React.Dispatch<React.SetStateAction<{ x: number; y: number; glareX: number; glareY: number; active: boolean }>>
   ) => {
+    if (rafWhyTiltRef.current !== null) {
+      cancelAnimationFrame(rafWhyTiltRef.current);
+      rafWhyTiltRef.current = null;
+    }
     setTilt({ x: 0, y: 0, glareX: 50, glareY: 50, active: false });
   };
+
+  React.useEffect(() => {
+    return () => {
+      if (rafWhyTiltRef.current !== null) {
+        cancelAnimationFrame(rafWhyTiltRef.current);
+      }
+    };
+  }, []);
 
   const triggerTestSimulation = (key: TestMetricKey) => {
     setActiveTestMetric(key);
